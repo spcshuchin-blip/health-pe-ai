@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>健體領域與 AI 共備：一站式備課 ＆ 互動教材提示詞產生器｜夏淑琴老師設計</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            rounded: ['"Zen Maru Gothic"', '"Noto Sans TC"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            },
+            sport: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #f8fafc;
+    }
+    .font-rounded {
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+    }
+    /* Custom Scrollbar for Prompt Preview */
+    .prompt-scroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .prompt-scroll::-webkit-scrollbar-track {
+      background: #1e293b;
+      border-radius: 6px;
+    }
+    .prompt-scroll::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 6px;
+    }
+    .prompt-scroll::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+    .card-check:checked + div {
+      border-color: #059669;
+      background-color: #ecfdf5;
+      box-shadow: 0 4px 12px -2px rgba(16, 185, 129, 0.2);
+    }
+    .card-check-orange:checked + div {
+      border-color: #ea580c;
+      background-color: #fff7ed;
+      box-shadow: 0 4px 12px -2px rgba(249, 115, 22, 0.2);
+    }
+    .card-check-indigo:checked + div {
+      border-color: #4f46e5;
+      background-color: #eef2ff;
+      box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.2);
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-rounded font-black text-xl shadow-md group-hover:scale-105 transition">
+          健
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-rounded font-black text-lg text-slate-900 tracking-tight">我的健體課這樣教</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">公開課＆研習專用版</span>
+          </div>
+          <p class="text-xs text-slate-500">夏淑琴老師設計｜SEL 生活技能 × TGfU 戰術意識 × AI 數位共備</p>
+        </div>
+      </a>
+
+      <!-- Navigation Tabs -->
+      <nav aria-label="主導覽列" class="flex items-center gap-1 sm:gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+        <a href="#home" data-tab="home" class="nav-tab px-3 py-1.5 rounded-lg text-sm font-bold transition">
+          首頁痛點
+        </a>
+        <a href="#lesson-prep" data-tab="lesson-prep" class="nav-tab px-3 py-1.5 rounded-lg text-sm font-bold transition">
+          一站式健體備課
+        </a>
+        <a href="#interactive" data-tab="interactive" class="nav-tab px-3 py-1.5 rounded-lg text-sm font-bold transition flex items-center gap-1">
+          <span>✨ 互動教材提示詞</span>
+        </a>
+        <a href="#summary" data-tab="summary" class="nav-tab px-3 py-1.5 rounded-lg text-sm font-bold transition hidden md:inline-block">
+          共備心法
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Containers -->
+  <main class="flex-grow">
+
+    <!-- ==========================================
+         TAB 1: HOME (#home)
+         ========================================== -->
+    <section id="panel-home" role="tabpanel" class="py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12">
+      <!-- Hero Banner -->
+      <div class="bg-gradient-to-br from-emerald-900 via-teal-800 to-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-xs font-bold tracking-wider uppercase">
+            從健體備課與公開授課現場出發
+          </div>
+          <h1 class="font-rounded font-black text-3xl sm:text-5xl leading-tight">
+            AI 健體備課與互動網頁，<br />
+            <span class="text-amber-300">為什麼別人一鍵生成，自己卻改到崩潰？</span>
+          </h1>
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+            健康教育需要<strong>「SEL 社會情緒學習與四大生活技能情境」</strong>，體育課需要<strong>「TGfU 球類戰術意識、動作技能檢核與體適能常模」</strong>。一般學科的 AI 提示詞套用在健體課往往變成死背題庫！本工具將 108 課綱健體指標、公開課審查規準與單一 HTML 互動語法全部模組化，讓老師專注教學判斷，把提示詞苦工交給系統。
+          </p>
+          <div class="pt-3 flex flex-wrap gap-3">
+            <a href="#interactive" class="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm sm:text-base shadow-lg transition flex items-center gap-2">
+              🚀 立即啟動「互動教材提示詞產生器」
+            </a>
+            <a href="#lesson-prep" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-sm sm:text-base transition">
+              📋 進入「一站式健體教案與海報共備」
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pain Points Section -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 rounded-lg bg-rose-100 text-rose-700 font-black text-sm">01 PAIN POINTS</span>
+          <h2 class="font-rounded font-black text-2xl text-slate-900">健體老師使用 AI 備課的四大痛點</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <div class="text-2xl">🧠</div>
+            <h3 class="font-bold text-slate-900">只考死背知識、缺乏生活技能</h3>
+            <p class="text-sm text-slate-600">AI 產出的健康題目只會問「一天要睡幾小時」，缺乏自我覺察、批判思考、作決定與拒絕技能的真實兩難情境。</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <div class="text-2xl">🏀</div>
+            <h3 class="font-bold text-slate-900">體育課不知如何融入數位互動</h3>
+            <p class="text-sm text-slate-600">需要 TGfU 戰術跑位板、同儕動作檢核表、間歇計時哨音器與分組計分板，卻不知如何下指令讓 AI 寫進同一個網頁。</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <div class="text-2xl">📑</div>
+            <h3 class="font-bold text-slate-900">公開課與競賽指標對齊耗時</h3>
+            <p class="text-sm text-slate-600">翻找 108 課綱健體領域核心素養（A1/B2/C2）、學習表現（1a~4b）與學習內容（Ca~Jb）耗費大量行政對照時間。</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <div class="text-2xl">☀️</div>
+            <h3 class="font-bold text-slate-900">操場平板反光、大屏字太小</h3>
+            <p class="text-sm text-slate-600">一般網頁字體太小、按鈕太擠，帶平板到操場或體育館投影時學生看不清楚，缺乏高對比大熱區與收折導覽列設計。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Stage Solution -->
+      <div class="bg-emerald-50/80 border border-emerald-200 rounded-3xl p-8 space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 rounded-lg bg-emerald-600 text-white font-black text-sm">02 THE SOLUTION</span>
+          <h2 class="font-rounded font-black text-2xl text-slate-900">補上關鍵缺口：專為健體領域打造的雙引擎工作流</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-emerald-200 shadow-sm flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">引擎 A：課程與海報設計</span>
+              <h3 class="font-rounded font-black text-xl text-slate-900">一站式健體備課產生器</h3>
+              <p class="text-sm text-slate-600">選好年級與健體主軸，貼上教學構想，勾選 108 課綱指標與備課任務（素養教案、SEL 學習單、TGfU 戰術海報提示詞、抗 AI 實作評量），立即生成結構化提示詞。</p>
+            </div>
+            <a href="#lesson-prep" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition">
+              前往一站式健體備課 →
+            </a>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-amber-300 shadow-sm flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">引擎 B：HTML5 單一網頁教材</span>
+              <h3 class="font-rounded font-black text-xl text-slate-900">健體互動教材提示詞產生器（含公開課對齊模式）</h3>
+              <p class="text-sm text-slate-600">內建 5 大健體快速範本、SEL 決策樹、TGfU 電子戰術板、體適能常模計算機、體育課哨音計時器，以及<strong>「公開課／教案競賽課綱對齊懸浮視窗」</strong>指令！</p>
+            </div>
+            <a href="#interactive" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm transition">
+              前往互動教材提示詞產生器 →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 2: ONE-STOP LESSON PREP (#lesson-prep)
+         ========================================== -->
+    <section id="panel-lesson-prep" role="tabpanel" hidden class="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-8">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">健體備課捷徑・高效版</span>
+          <h2 class="font-rounded font-black text-2xl sm:text-3xl text-slate-900 mt-2">與 AI 共備：一站式的健康與體育備課</h2>
+          <p class="text-sm text-slate-600 mt-1">勾選健體子領域、108 課綱指標與教學方法，貼上教材大綱，立即組裝可直接交給 Gemini 的專業提示詞。</p>
+        </div>
+        <button type="button" onclick="resetLessonPrep()" class="px-4 py-2 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 text-xs font-bold transition shrink-0">
+          🔄 重置所有選項
+        </button>
+      </div>
+
+      <!-- STEP 01 -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-sm">01</span>
+          <div>
+            <h3 class="font-rounded font-bold text-lg text-slate-900">選擇這次要備課的健體主軸與年級</h3>
+            <p class="text-xs text-slate-500">結合 108 課綱學習階段與健體核心教學法（SEL / 生活技能 / TGfU）</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">健體領域分支</label>
+            <select id="lp-branch" onchange="compileLessonPrepPrompt()" class="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium focus:border-emerald-500 focus:ring-emerald-500">
+              <option value="健康教育（生活技能與健康素養導向）">🍎 健康教育（生活技能／健康素養）</option>
+              <option value="體育科：競爭類型球類運動（TGfU 戰術意識導向）">🏀 體育：競爭類型球類運動（TGfU）</option>
+              <option value="體育科：挑戰類型運動（田徑／體適能／游泳）">🏃 體育：挑戰類型運動（田徑／體適能）</option>
+              <option value="體育科：表現類型與休閒運動（體操／舞蹈／民俗／防衛）">🤸 體育：表現類型與休閒防衛運動</option>
+              <option value="健體領域跨子科整合（動態身體活動結合健康管理）">⚡ 健體跨子科整合（身體活動＋健康管理）</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">教材版本／來源</label>
+            <select id="lp-publisher" onchange="compileLessonPrepPrompt()" class="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium">
+              <option value="康軒版">康軒版</option>
+              <option value="翰林版">翰林版</option>
+              <option value="南一版">南一版</option>
+              <option value="自編校訂／公開授課專案教材">自編校訂／公開授課專案教材</option>
+              <option value="跨年級／混齡教學設計">跨年級／混齡教學設計</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">學習階段與年級</label>
+            <select id="lp-stage" onchange="handleLpStageChange()" class="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium">
+              <option value="stage1">第一學習階段（國小一、二年級）</option>
+              <option value="stage2" selected>第二學習階段（國小三、四年級）</option>
+              <option value="stage3">第三學習階段（國小五、六年級）</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">具體年級與單元名稱</label>
+            <input type="text" id="lp-unit-title" oninput="compileLessonPrepPrompt()" placeholder="例：四上 青春期大冒險 / 五上 樂樂棒球戰術王" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" value="四年級：數位康健與 85210 生活實踐" />
+          </div>
+        </div>
+
+        <!-- Core Pedagogies -->
+        <div class="pt-2">
+          <label class="block text-xs font-bold text-slate-700 mb-2">本單元融入之核心教學架構（可複選）：</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5" id="lp-pedagogy-group">
+            <label class="cursor-pointer">
+              <input type="checkbox" value="四大核心生活技能（自我覺察、批判性思考、作決定、拒絕技能）" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">🧠 四大生活技能（覺察/思考/決定/拒絕）</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="SEL 社會情緒學習（自我覺察、自我管理、社會覺察、人際技巧、負責任的決定）" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">💛 SEL 社會情緒學習五大向度融入</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="TGfU 理解式球類教學法（比賽欣賞→戰術意識→決策判斷→技能執行→表現評量）" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">🏀 TGfU 理解式球類戰術意識教學</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="Mosston 體育教學光譜（包含練習式、互惠式同儕檢核、包含式差異化闖關）" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">🎯 差異化闖關 ＆ 同儕互惠式動作檢核</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="課堂過渡 3 分鐘正念靜心與收操覺察引導（調節自主神經與情緒收斂）" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">🧘 3 分鐘靜心收操與身心覺察過渡</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="生生用平板／數位工具自主學習與即時回饋紀錄" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">📱 數位平板融入與自主學習回饋</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 02 -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-sm">02</span>
+            <div>
+              <h3 class="font-rounded font-bold text-lg text-slate-900">貼上教材內容、運動規則或學生起點行為</h3>
+              <p class="text-xs text-slate-500">純前端記憶體運算，絕不上傳或保存您的教材文字。</p>
+            </div>
+          </div>
+          <button type="button" onclick="document.getElementById('lp-content').value=''; compileLessonPrepPrompt();" class="text-xs text-rose-600 hover:underline font-bold">清除文字</button>
+        </div>
+        <textarea id="lp-content" rows="4" oninput="compileLessonPrepPrompt()" placeholder="請貼上課本章節重點、體適能標準、球類規則，或描述學生常犯的動作錯誤／健康迷思..." class="w-full rounded-xl border border-slate-300 p-3.5 text-sm leading-relaxed focus:border-emerald-500">核心概念：85210 健康密碼（睡足8小時、天天5蔬果、四電少於2小時、每天運動30分鐘以上、喝足1500~2000cc白開水）。結合學生課後常滑手機、喝含糖飲料的真實生活情境，引導學生透過「自我覺察」檢視作息，並運用「作決定」與「拒絕技能」婉拒同學邀約購買手搖飲與熬夜打電動。</textarea>
+      </div>
+
+      <!-- STEP 03 -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-sm">03</span>
+          <div>
+            <h3 class="font-rounded font-bold text-lg text-slate-900">聚焦 108 課綱健體領域核心素養、學習表現與學習內容</h3>
+            <p class="text-xs text-slate-500">已依據您在 Step 01 選擇的「學習階段」自動載入對應課綱條目，可直接點選帶入提示詞</p>
+          </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <div>
+          <label class="block text-xs font-bold text-emerald-800 mb-2">📌 健體領域核心素養（公開課／教案必備）：</label>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5" id="lp-core-comp">
+            <label class="cursor-pointer">
+              <input type="checkbox" value="健體-E-A1 具備良好身體活動與健康生活的習慣，以促進身心健全發展，並認識個人特質，發展運動與保健潛能。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs transition">
+                <span class="font-black text-emerald-700 block">健體-E-A1 身心素質與自我精進</span>
+                <span class="text-slate-600">具備良好身體活動與健康生活習慣，發展運動與保健潛能</span>
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="健體-E-B2 具備應用體育與健康相關科技、資訊及媒體的基本素養，並能批判思考與善用健康資訊與資源。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs transition">
+                <span class="font-black text-emerald-700 block">健體-E-B2 科技資訊與媒體素養</span>
+                <span class="text-slate-600">善用體育與健康科技資訊，批判思考健康資源</span>
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" value="健體-E-C2 具備同理他人感受，在體育活動和健康生活中樂於與人互動、公平競爭，並與團隊成員合作，促進身心健康。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+              <div class="p-3 rounded-xl border border-slate-200 text-xs transition">
+                <span class="font-black text-emerald-700 block">健體-E-C2 人際關係與團隊合作</span>
+                <span class="text-slate-600">同理感受、正向互動、公平競爭與團隊合作</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <h4 class="text-xs font-black text-slate-800 mb-2">🎯 學習表現（認知 1a~1d / 情意 2a~2d / 技能 3a~3d / 行為 4a~4b）</h4>
+            <div id="lp-perf-container" class="space-y-1.5 max-h-52 overflow-y-auto pr-1 text-xs"></div>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <h4 class="text-xs font-black text-slate-800 mb-2">📚 學習內容（健康 A~F / 體育挑戰 G / 競爭 H / 表現 I）</h4>
+            <div id="lp-cont-container" class="space-y-1.5 max-h-52 overflow-y-auto pr-1 text-xs"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 04 -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-sm">04</span>
+          <div>
+            <h3 class="font-rounded font-bold text-lg text-slate-900">這次想請 AI 協助產出什麼教學配件？（可複選）</h3>
+            <p class="text-xs text-slate-500">勾選後下方將即時生成完整提示詞</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="lp-tasks-group">
+          <label class="cursor-pointer">
+            <input type="checkbox" value="【108課綱素養導向完整教案】：包含設計理念、核心素養、學習重點、跨領域/議題融入、教學流程（引起動機→發展活動→綜合活動，標註時間與SEL/生活技能/TGfU提問鷹架）及多元評量規準（Rubrics）。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+            <div class="p-3.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 transition">📋 1. 公開課／競賽級 108 課綱完整教案</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="checkbox" value="【素養導向探究學習單】：包含真實生活兩難情境案例、思維鷹架圖表、生活技能（覺察/決策/拒絕話術練習）演練格，以及學生自我檢核與親師共學回饋欄。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+            <div class="p-3.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 transition">📝 2. 生活技能／SEL 情境探究學習單</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="checkbox" value="【TGfU 球類戰術意識／動作技能教學海報設計稿】：包含海報主副標題、進攻/防守/空間/支援核心口訣、圖解戰術板配置說明、學生自我檢核表，以及可直接貼入生圖工具的中英對照 AI 視覺提示詞（Bento Grid 資訊圖表風格）。" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+            <div class="p-3.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 transition">🎨 3. TGfU 戰術海報文字稿 ＆ AI 生圖提示詞</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="checkbox" value="【素養導向紙筆測驗與雙向細目表】：設計 5 題生活情境單選題與 1 組混合題組，附上 Bloom 認知層次雙向細目表、完整詳解與評分規準。" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+            <div class="p-3.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 transition">💯 4. 素養情境命題（單選＋題組）與細目表</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="checkbox" value="【抗 AI 抄襲之實作與口語評量方案】：針對本單元設計結合個人真實運動數據、家庭生活紀錄或課堂即時情境演練的實作任務，附上三等級表現描述規準。" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+            <div class="p-3.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 transition">🛡️ 5. 抗 AI 真實性實作評量與 Rubrics</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="checkbox" value="【Kahoot! 隨堂互動題庫表】：輸出 10 題適合課堂搶答的表格（包含：題目、選項A~D、正確答案、秒數限制、教學解析）。" onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
+            <div class="p-3.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 transition">🎮 6. Kahoot! 課堂搶答 10 題題庫表</div>
+          </label>
+        </div>
+
+        <!-- Prompt Result Box -->
+        <div class="bg-slate-900 rounded-2xl p-6 text-slate-100 space-y-4 mt-6">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500 text-slate-950 font-black text-xs">READY</span>
+              <h4 class="font-bold text-sm text-white">一站式健體備課提示詞已就緒</h4>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" onclick="copyText('lp-prompt-output')" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition">
+                📋 複製完整提示詞
+              </button>
+              <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition">
+                開啟 Gemini ↗
+              </a>
+              <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold text-xs transition">
+                開啟 ChatGPT ↗
+              </a>
+            </div>
+          </div>
+          <pre id="lp-prompt-output" class="prompt-scroll text-xs sm:text-sm font-mono whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto text-emerald-100"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 3: INTERACTIVE WEB GENERATOR (#interactive)
+         ========================================== -->
+    <section id="panel-interactive" role="tabpanel" hidden class="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+      
+      <!-- Top Quick Templates Bar -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-black text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg">⚡ 健體公開課快速範本套用：</span>
+          <button type="button" onclick="applyInteractivePreset('sel_health')" class="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold transition">
+            🍎 1. 健康生活技能＆SEL 決策闖關
+          </button>
+          <button type="button" onclick="applyInteractivePreset('tgfu_sport')" class="px-3 py-1.5 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-800 border border-orange-200 text-xs font-bold transition">
+            🏀 2. TGfU 球類戰術意識電子戰術板
+          </button>
+          <button type="button" onclick="applyInteractivePreset('fitness_85210')" class="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold transition">
+            💪 3. 體適能常模 ＆ 85210 計算機
+          </button>
+          <button type="button" onclick="applyInteractivePreset('puberty_adventure')" class="px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold transition">
+            🌱 4. 青春期與身體界線 RPG 大冒險
+          </button>
+          <button type="button" onclick="applyInteractivePreset('pe_rubric')" class="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold transition">
+            🧘 5. 體育動作同儕檢核 ＆ 靜心計時器
+          </button>
+        </div>
+      </div>
+
+      <!-- 2-Column Builder Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT COLUMN: 5 Steps Form (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- STEP 1: Grade & Health/PE Subject -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-xs">1</span>
+              <h2 class="font-rounded font-black text-lg text-slate-900">適用年級與健體主題分類</h2>
+            </div>
+
+            <!-- Grade Selection + Bopomofo Toggle -->
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <label class="text-xs font-bold text-slate-700">選擇適用年級：</label>
+                <label class="inline-flex items-center gap-2 cursor-pointer bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+                  <input type="checkbox" id="iw-bopomofo" onchange="compileInteractivePrompt()" class="rounded text-amber-600 focus:ring-amber-500" />
+                  <span class="text-xs font-bold text-amber-900">🔤 啟用注音字型支援 ＆ Web Speech 語音朗讀按鈕</span>
+                </label>
+              </div>
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="iw-grade-group">
+                <label class="cursor-pointer"><input type="radio" name="iw-grade" value="國小一年級（第一學習階段，字句極簡、圖示為主）" onchange="handleIwGradeChange(1)" class="sr-only card-check" /><div class="py-2 text-center rounded-xl border border-slate-200 text-xs font-bold">一年級</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-grade" value="國小二年級（第一學習階段，字句簡明、具體操作）" onchange="handleIwGradeChange(2)" class="sr-only card-check" /><div class="py-2 text-center rounded-xl border border-slate-200 text-xs font-bold">二年級</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-grade" value="國小三年級（第二學習階段，生活情境與基礎規則）" onchange="handleIwGradeChange(3)" class="sr-only card-check" /><div class="py-2 text-center rounded-xl border border-slate-200 text-xs font-bold">三年級</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-grade" value="國小四年級（第二學習階段，生活技能演練與團隊合作）" checked onchange="handleIwGradeChange(4)" class="sr-only card-check" /><div class="py-2 text-center rounded-xl border border-slate-200 text-xs font-bold">四年級</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-grade" value="國小五年級（第三學習階段，批判思考、數據分析與戰術意識）" onchange="handleIwGradeChange(5)" class="sr-only card-check" /><div class="py-2 text-center rounded-xl border border-slate-200 text-xs font-bold">五年級</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-grade" value="國小六年級（第三學習階段，自主健康管理、問題解決與戰術決策）" onchange="handleIwGradeChange(6)" class="sr-only card-check" /><div class="py-2 text-center rounded-xl border border-slate-200 text-xs font-bold">六年級</div></label>
+              </div>
+            </div>
+
+            <!-- Health & PE Topic Domain -->
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-700 block">選擇健康與體育領域主題：</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="iw-domain-group">
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="健康教育：飲食營養、85210健康密碼與健康體位管理" checked onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🥗 健康：飲食營養 ＆ 85210 健康管理</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="健康教育：生長發育、青春期身心變化與性別平等身體界線" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🌱 健康：生長發育、青春期 ＆ 身體界線</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="健康教育：心理健康、SEL社會情緒學習、壓力調適與人際溝通" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">💛 健康：SEL 情緒管理 ＆ 人際溝通</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="健康教育：成癮物質防制（菸酒檳榔）、數位康健（3C自制力）與拒絕技能" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🛡️ 健康：數位康健、成癮防制 ＆ 拒絕技能</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="健康教育：安全生活、運動傷害防護、急救技能與全民健保醫療素養" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🚑 健康：安全急救、運動防護 ＆ 健保素養</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：陣地攻守球類（籃球／足球／手球）TGfU戰術與技能" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🏀 體育：陣地攻守球類（籃/足/手球 TGfU）</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：網牆性球類（排球／羽球／桌球／匹克球）空間與擊球決策" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🏸 體育：網牆性球類（排/羽/桌/匹克球）</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：守備跑分與標的性球類（樂樂棒球／躲避球）戰術與團隊支援" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">⚾ 體育：樂樂棒球 ／ 躲避球戰術意識</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="體育科（挑戰與表現類型）：田徑、體適能四大要素常模檢測、體操與身體部位平衡" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🏃 體育：體適能常模、田徑 ＆ 身體平衡</div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-domain" value="健體跨領域統整：運動規則判讀、裁判手勢、運動家精神與課堂正念靜心收操" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🧘 體育：規則判讀、團隊精神 ＆ 靜心收操</div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Architecture, Venue Mode & Visual Style -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-xs">2</span>
+              <h2 class="font-rounded font-black text-lg text-slate-900">網站架構、教學場域最佳化與視覺字型</h2>
+            </div>
+
+            <!-- Web App Architecture -->
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-700 block">網站架構類型：</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-arch" value="多分頁標籤式教學工作台（頂部清楚切換：觀念導讀 → 互動演練 → 情境闖關 → 隨堂測驗）" checked onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-3 rounded-xl border border-slate-200 text-xs">
+                    <span class="font-bold block text-slate-900">🗂️ 多分頁標籤式工作台（Tabs）</span>
+                    <span class="text-slate-500">觀念導讀 → 互動演練 → 隨堂測驗結構分明</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-arch" value="RPG 闖關大冒險（設定角色生命值/能量條，依序突破 3~4 個生活情境或戰術關卡解鎖徽章）" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-3 rounded-xl border border-slate-200 text-xs">
+                    <span class="font-bold block text-slate-900">🎮 RPG 闖關大冒險（Level Quest）</span>
+                    <span class="text-slate-500">含能量條、情境解鎖與過關證書，學生動機最高</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-arch" value="TGfU 互動電子戰術板 ＆ 決策工作坊（左側動態球場畫布拖曳跑位，右側戰術提問與技能檢核）" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-3 rounded-xl border border-slate-200 text-xs">
+                    <span class="font-bold block text-slate-900">📋 TGfU 電子戰術板 ＆ 決策工作坊</span>
+                    <span class="text-slate-500">左球場拖曳模擬、右戰術提問，體育公開課首選</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="iw-arch" value="Bento Grid 數據儀表板與計算機（多卡片模組化呈現健康/體適能指標、即時圖表與常模診斷）" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                  <div class="p-3 rounded-xl border border-slate-200 text-xs">
+                    <span class="font-bold block text-slate-900">📊 Bento Grid 數據儀表板與計算機</span>
+                    <span class="text-slate-500">適合 85210 追蹤、體適能常模比對與身體組成</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Venue Optimization Checkboxes -->
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2.5">
+              <div class="text-xs font-bold text-slate-800">🏟️ 健體課堂與戶外場域最佳化（可複選）：</div>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" id="iw-collapse-header" checked onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-emerald-600" />
+                <span class="text-xs text-slate-700"><strong>教室大屏投影收折功能</strong>：提供頂部導覽列「展開／收起」切換鍵，騰出最大垂直畫面給電子白板操作。</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" id="iw-outdoor-mode" checked onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-emerald-600" />
+                <span class="text-xs text-slate-700"><strong>體育館／操場平板高對比大按鈕模式</strong>：所有可點擊按鈕與拖曳元件高度 ≥ 52px，支援觸控事件（Touch Events / Pointer Events），防陽光反光高對比配色。</span>
+              </label>
+            </div>
+
+            <!-- Visual Styles -->
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-700 block">視覺美學風格：</label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="多巴胺活力運動風（高飽和鮮明色彩、圓角卡片、充滿朝氣的運動徽章感）" checked onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🌈 多巴胺活力運動風</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="現代 Bento Grid 資訊圖表風（清爽淺色背景、精緻邊框、高資訊密度與直覺圖表）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🍱 現代 Bento 資訊風</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="溫馨繪本療癒風（柔和大地與粉彩配色、適合情緒覺察SEL、青春期與靜心引導）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🌿 溫馨繪本療癒風</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="競技戰術運動場風（深綠/木紋球場元素搭配醒目螢光標記，極具臨場感）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🏟️ 競技戰術球場風</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="電玩像素闖關風（8-bit / 街機遊戲感、生命值愛心與金幣音效，提升遊戲化動機）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">👾 電玩遊戲闖關風</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="清新醫療健康實驗室風（薄荷綠與天空藍、乾淨專業、適合衛教與急救健保主題）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🩺 清新醫療衛教風</div></label>
+              </div>
+            </div>
+
+            <!-- Typography Sliders -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
+                <div class="flex justify-between items-center text-xs font-bold">
+                  <span>標題字型與大小</span>
+                  <span id="iw-heading-size-label" class="text-emerald-700 font-black">42px</span>
+                </div>
+                <select id="iw-heading-font" onchange="compileInteractivePrompt()" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs">
+                  <option value="親和圓潤圓體（'Zen Maru Gothic', '圓體', sans-serif）" selected>親和圓潤圓體（Zen Maru Gothic）</option>
+                  <option value="現代高易讀黑體（'Noto Sans TC', '微軟正黑體', sans-serif）">現代高易讀黑體（Noto Sans TC）</option>
+                  <option value="芫荽教育楷書體（'Iansui', '芫荽', '標楷體', serif）">芫荽教育楷書體（適合低年級識字）</option>
+                </select>
+                <input type="range" id="iw-heading-size" min="32" max="56" step="2" value="42" oninput="document.getElementById('iw-heading-size-label').innerText=this.value+'px'; compileInteractivePrompt();" class="w-full accent-emerald-600" />
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
+                <div class="flex justify-between items-center text-xs font-bold">
+                  <span>內文字型與大小</span>
+                  <span id="iw-body-size-label" class="text-emerald-700 font-black">20px</span>
+                </div>
+                <select id="iw-body-font" onchange="compileInteractivePrompt()" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs">
+                  <option value="現代高易讀黑體（'Noto Sans TC', 'PingFang TC', sans-serif）" selected>現代高易讀黑體（高辨識度）</option>
+                  <option value="親和圓潤圓體（'Zen Maru Gothic', '圓體', sans-serif）">親和圓潤圓體（圓體）</option>
+                  <option value="芫荽教育楷書體（'Iansui', '芫荽', '標楷體', serif）">芫荽教育楷書體（標楷體）</option>
+                </select>
+                <input type="range" id="iw-body-size" min="16" max="28" step="2" value="20" oninput="document.getElementById('iw-body-size-label').innerText=this.value+'px'; compileInteractivePrompt();" class="w-full accent-emerald-600" />
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Unit Content + PUBLIC LESSON / COMPETITION ALIGNMENT MODE (NEW EXPANSION!) -->
+          <div class="bg-white rounded-2xl p-6 border-2 border-indigo-200 shadow-sm space-y-5 relative overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-indigo-100 pb-3">
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white font-black flex items-center justify-center text-xs">3</span>
+                <div>
+                  <h2 class="font-rounded font-black text-lg text-slate-900">單元內容 ＆ 公開課／教案競賽對齊模式</h2>
+                  <p class="text-xs text-indigo-600 font-bold">★ 擴充設計：支援將課綱核心素養與指標寫入互動網頁的「觀課／評審說明視窗」</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Unit Title & Content -->
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">互動教材單元主標題：</label>
+                <input type="text" id="iw-title" oninput="compileInteractivePrompt()" value="數位康健 ＆ 85210 健康生活守門員" placeholder="請輸入單元名稱，如：匹克球空間戰術王、青春期大冒險..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm font-bold text-slate-900" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">教學重點、生活情境案例或運動規則說明：</label>
+                <textarea id="iw-desc" rows="3" oninput="compileInteractivePrompt()" placeholder="貼入您希望 AI 做成互動關卡的核心知識、生活兩難情境或球類戰術規則..." class="w-full rounded-xl border border-slate-300 p-3 text-xs sm:text-sm leading-relaxed">1. 認識 85210 健康密碼與藍光對睡眠、視力的影響。
+2. 練習四大核心生活技能：當好朋友在放學後邀約「邊喝全糖珍奶邊連線打手遊到晚上11點」時，如何透過【自我覺察】辨識身體疲勞與情緒、【批判思考】評估健康後果、【作決定】選擇替代方案，並運用【拒絕技能】（肯定友誼＋說明理由＋提出健康替代邀約）溫和而堅定地拒絕。</textarea>
+              </div>
+            </div>
+
+            <!-- PUBLIC LESSON / COMPETITION ALIGNMENT BOX -->
+            <div class="bg-indigo-50/70 rounded-2xl p-4 border border-indigo-200 space-y-4">
+              <div class="flex items-start justify-between gap-3">
+                <label class="flex items-start gap-2.5 cursor-pointer">
+                  <input type="checkbox" id="iw-public-lesson-modal" checked onchange="compileInteractivePrompt()" class="mt-1 rounded text-indigo-600 focus:ring-indigo-500 w-4 h-4" />
+                  <div>
+                    <span class="text-xs sm:text-sm font-black text-indigo-950 block">🏅 啟用「公開課／教案競賽對齊模式」（自動生成觀課評審專屬說明視窗）</span>
+                    <span class="text-xs text-indigo-700">勾選後，AI 會在產出的互動網頁頂部導覽列加入一顆<strong>「📋 課綱與教學設計對齊」</strong>按鈕，點擊可彈出 Modal 視窗，完整展示本教材對應之核心素養、學習重點與生活技能/TGfU設計理念！</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Core Competencies Checkboxes (A1, B2, C2 + A2, A3, B1) -->
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-indigo-900 block">勾選要寫入網頁「觀課／評審說明視窗」的 108 課綱核心素養：</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="iw-comp-group">
+                  <label class="cursor-pointer">
+                    <input type="checkbox" value="【A1 身心素質與自我精進（健體-E-A1）】具備良好身體活動與健康生活的習慣，以促進身心健全發展，並認識個人特質，發展運動與保健潛能。" checked onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
+                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
+                      <span class="font-black text-indigo-700 block">A1 身心素質與自我精進</span>
+                      <span class="text-slate-600 text-[11px]">健體-E-A1 良好健康與運動習慣</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" value="【B2 科技資訊與媒體素養（健體-E-B2）】具備應用體育與健康相關科技、資訊及媒體的基本素養，並能批判思考與善用健康資訊與資源。" checked onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
+                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
+                      <span class="font-black text-indigo-700 block">B2 科技資訊與媒體素養</span>
+                      <span class="text-slate-600 text-[11px]">健體-E-B2 善用健康與體育科技</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" value="【C2 人際關係與團隊合作（健體-E-C2）】具備同理他人感受，在體育活動和健康生活中樂於與人互動、公平競爭，並與團隊成員合作，促進身心健康。" checked onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
+                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
+                      <span class="font-black text-indigo-700 block">C2 人際關係與團隊合作</span>
+                      <span class="text-slate-600 text-[11px]">健體-E-C2 同理互動與團隊合作</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" value="【A2 系統思考與解決問題（健體-E-A2）】具備探索身體活動與健康生活問題的思考能力，並透過體驗與實踐，處理日常生活與運動情境的問題。" onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
+                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
+                      <span class="font-black text-indigo-700 block">A2 系統思考與解決問題</span>
+                      <span class="text-slate-600 text-[11px]">健體-E-A2 探索與解決健康運動問題</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" value="【A3 規劃執行與創新應變（健體-E-A3）】具備擬定基本的運動與保健計畫，並透過自我激勵與監控，落實於日常生活中。" onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
+                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
+                      <span class="font-black text-indigo-700 block">A3 規劃執行與創新應變</span>
+                      <span class="text-slate-600 text-[11px]">健體-E-A3 擬定與執行運動保健計畫</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" value="【B1 符號運用與溝通表達（健體-E-B1）】具備運用體育與健康相關符號知能，在運動與健康情境中進行表達、溝通與實踐。" onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
+                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
+                      <span class="font-black text-indigo-700 block">B1 符號運用與溝通表達</span>
+                      <span class="text-slate-600 text-[11px]">健體-E-B1 運動與健康溝通表達</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Quick Learning Indicators for Interactive Modal -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="bg-white p-3 rounded-xl border border-indigo-100">
+                  <div class="text-xs font-bold text-indigo-900 mb-1.5">對應學習表現（依所選年級自動切換）：</div>
+                  <div id="iw-perf-list" class="space-y-1 max-h-36 overflow-y-auto text-xs"></div>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-indigo-100">
+                  <div class="text-xs font-bold text-indigo-900 mb-1.5">對應學習內容（依所選年級自動切換）：</div>
+                  <div id="iw-cont-list" class="space-y-1 max-h-36 overflow-y-auto text-xs"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Interactive Modules (Multi-select 1~3) -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-xs">4</span>
+                <h2 class="font-rounded font-black text-lg text-slate-900">健體專屬互動模式（可複選組合）</h2>
+              </div>
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">建議選 1～3 項</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="iw-modes-group">
+              <label class="cursor-pointer">
+                <input type="checkbox" id="mode-sel" value="【四大生活技能 ＆ SEL 社會情緒情境決策樹（Role-Play）】：設計 3 個真實兩難情境對話視窗，讓學生依序演練「1.自我覺察（辨識情緒與身體訊號）→ 2.批判思考（分析利弊）→ 3.作決定（選擇健康方案）→ 4.拒絕技能（組合出溫和堅定的拒絕話術）」，每次選擇皆有動態回饋與能量值變化。" checked onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                <div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 transition h-full">
+                  <div class="font-black text-slate-900">🗣️ 1. 生活技能 ＆ SEL 情境決策樹</div>
+                  <p class="text-slate-500">演練自我覺察、批判思考、作決定與拒絕話術組合</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="checkbox" id="mode-tgfu" value="【TGfU 球類戰術意識電子戰術板 ＆ 走位決策模擬】：以 SVG/Canvas 繪製標準球場底圖，提供可拖曳的進攻方（紅隊）、防守方（藍隊）與球標的，並內建 3 道「空間概念、空檔跑位、傳接支援、攻守轉換」的動態戰術決策挑戰題。" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                <div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 transition h-full">
+                  <div class="font-black text-slate-900">🏀 2. TGfU 電子戰術板 ＆ 走位模擬</div>
+                  <p class="text-slate-500">可拖曳球員與球，搭配空間、跑位與攻守轉換決策題</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="checkbox" id="mode-calc" value="【85210 健康追蹤 ＆ 教育部體適能常模診斷計算機】：提供直覺滑桿與輸入框（可輸入身高體重計算BMI/腰臀比、每日睡眠/蔬果/螢幕/運動/喝水量，或立定跳遠/仰臥捲腹/坐姿體前彎/800公尺跑走數據），即時對照國小男女常模等級（金牌/銀牌/銅牌/待加強）並生成視覺化進度條與個人化運動處方籤。" checked onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                <div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 transition h-full">
+                  <div class="font-black text-slate-900">📊 3. 體適能常模 ＆ 85210 診斷計算機</div>
+                  <p class="text-slate-500">輸入數據即時比對常模等級，產出視覺化雷達/處方籤</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="checkbox" id="mode-rubric" value="【體育動作技能分解翻翻卡 ＆ 同儕互評檢核表（Peer Rubric）】：將運動技能分解為「預備期→發力期→隨球/緩衝期」圖文翻翻卡，並提供雙人互評勾選表（場邊觀察員用平板勾選同伴達成項目，自動計算星級達成率與修正建議）。" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                <div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 transition h-full">
+                  <div class="font-black text-slate-900">✅ 4. 動作分解翻翻卡 ＆ 同儕互評檢核表</div>
+                  <p class="text-slate-500">預備/發力/隨球動作要領翻卡＋平板同儕觀察勾選計分</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="checkbox" id="mode-drag" value="【直覺式分類配對與步驟排序闖關】：支援滑鼠與平板觸控點選/拖曳，將健康習慣、營養六大類、身體部位保護或運動急救步驟（如 PRICE / CPR / 正確熱身順序）進行配對與順序排列，答對觸發音效與動畫。" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                <div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 transition h-full">
+                  <div class="font-black text-slate-900">🧩 5. 拖曳分類配對 ＆ 動作步驟排序</div>
+                  <p class="text-slate-500">適合身體部位、營養分類、急救順序與運動規則配對</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="checkbox" id="mode-mindful" value="【體育課 3 分鐘正念靜心收操 ＆ 呼吸覺察引導器】：設計動態吸氣/吐氣擴散光圈動畫（4-2-6 呼吸節律），搭配 Web Audio API 溫和頌缽/自然音頻合成，引導學生在激烈運動後進行心跳覺察、汗水清理（祓除煩躁）與情緒平靜自評。" onchange="compileInteractivePrompt()" class="sr-only card-check" />
+                <div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 transition h-full">
+                  <div class="font-black text-slate-900">🧘 6. 3 分鐘正念靜心呼吸收操引導器</div>
+                  <p class="text-slate-500">動態呼吸光圈＋溫和合成音頻，協助體育課後情緒收斂</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 5: Assessment, PE Floating Tools & Teacher Signature -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-black flex items-center justify-center text-xs">5</span>
+              <h2 class="font-rounded font-black text-lg text-slate-900">素養評量、健體課堂懸浮工具箱與署名</h2>
+            </div>
+
+            <!-- Quiz Types -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-slate-700">內建 10 題素養評量題庫（含即時解析与錯題複習）：</label>
+                <span class="text-[11px] font-bold text-emerald-700">必含 10 題與作答回饋</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="iw-quiz-group">
+                <label class="cursor-pointer"><input type="checkbox" value="生活兩難情境選擇題（考驗生活技能與決策判斷）" checked onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2 rounded-xl border border-slate-200 text-xs font-bold text-center">🎭 生活情境決策題</div></label>
+                <label class="cursor-pointer"><input type="checkbox" value="迷思概念是非題（破解常見健康與運動迷思）" checked onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2 rounded-xl border border-slate-200 text-xs font-bold text-center">⭕ 迷思破解是非題</div></label>
+                <label class="cursor-pointer"><input type="checkbox" value="球類空間與裁判規則判讀題（結合球場圖示判斷）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2 rounded-xl border border-slate-200 text-xs font-bold text-center">⚖️ 戰術與規則判讀題</div></label>
+              </div>
+            </div>
+
+            <!-- Floating Classroom Tools -->
+            <div class="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <div class="text-xs font-bold text-slate-800 mb-1">🧰 嵌入網頁角落之「健體課堂懸浮工具箱」（可複選）：</div>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" id="tool-timer-whistle" checked onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-emerald-600" />
+                <span class="text-xs text-slate-700"><strong>⏱️ 體育課間歇計時器 ＆ 電子哨音器（Web Audio API）</strong>：提供 30秒/1分鐘/3分鐘倒數計時，以及一鍵發出響亮「長哨音／短哨音／集合提示音」按鈕。</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" id="tool-scoreboard" checked onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-emerald-600" />
+                <span class="text-xs text-slate-700"><strong>🏆 小組競賽即時加扣分計分板</strong>：可隨時滑出 2～6 組計分牌，點擊即可加分並觸發歡呼特效。</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" id="tool-whiteboard" checked onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-emerald-600" />
+                <span class="text-xs text-slate-700"><strong>✏️ 懸浮半透明手寫戰術白板（Canvas 塗鴉）</strong>：支援紅/藍/黃畫筆直接在網頁或球場上畫線標註、橡皮擦與一鍵清除。</span>
+              </label>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" id="tool-certificate" checked onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-emerald-600" />
+                <span class="text-xs text-slate-700"><strong>📸 學習成果與健康承諾卡產生器（可輸入姓名下載圖片）</strong>：學生完成互動與測驗後，可輸入班級座號姓名並勾選今日自我承諾，一鍵繪製成精美學習證書圖檔下載。</span>
+              </label>
+            </div>
+
+            <!-- External Link & Author Signature -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">嵌入補充影片或外部連結（選填）：</label>
+                <input type="text" id="iw-ext-url" oninput="compileInteractivePrompt()" placeholder="可貼上 YouTube / Padlet 連結（留空則不嵌入）" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">頁面專屬署名（將顯示於教材頁尾與公開課視窗）：</label>
+                <input type="text" id="iw-author" oninput="compileInteractivePrompt()" value="設計：夏淑琴老師｜新北市國小健康與體育領域輔導團" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-bold text-emerald-800" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Sticky Live Prompt Preview (5 cols) -->
+        <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-4">
+          <div class="bg-slate-900 rounded-3xl p-5 sm:p-6 text-slate-100 shadow-2xl border border-slate-800 space-y-4">
+            <div class="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <h3 class="font-rounded font-black text-base sm:text-lg text-white">已組合完成之 AI 提示詞</h3>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">已整合公開課課綱對齊視窗、健體互動邏輯與單一 HTML 規範</p>
+              </div>
+              <span id="iw-char-count" class="px-2.5 py-1 rounded-lg bg-slate-800 text-emerald-400 font-mono text-xs font-bold shrink-0">0 字</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" onclick="copyText('iw-prompt-output')" class="col-span-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm shadow-lg transition flex items-center justify-center gap-2">
+                📋 一鍵複製完整 AI 提示詞
+              </button>
+              <button type="button" onclick="downloadPromptTxt()" class="py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition flex items-center justify-center gap-1 border border-slate-700">
+                💾 下載 .txt 備份
+              </button>
+              <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition flex items-center justify-center gap-1">
+                ✨ 開啟 Gemini 貼上 ↗
+              </a>
+            </div>
+
+            <!-- Live Prompt Code Area -->
+            <div class="relative">
+              <pre id="iw-prompt-output" class="prompt-scroll bg-slate-950/90 border border-slate-800 rounded-2xl p-4 text-xs font-mono text-emerald-100 whitespace-pre-wrap leading-relaxed h-[420px] overflow-y-auto"></pre>
+            </div>
+
+            <!-- Teacher Tips -->
+            <div class="bg-slate-800/70 rounded-2xl p-4 border border-slate-700/80 text-xs space-y-1.5 text-slate-300">
+              <div class="font-bold text-amber-300 flex items-center gap-1.5">💡 公開課與研習實戰小撇步：</div>
+              <p>1. 點擊「一鍵複製」後，貼入 <strong>Gemini（開啟 Canvas 功能）</strong> 或 <strong>ChatGPT</strong>。</p>
+              <p>2. AI 會直接產出一份完整的單一 <code>index.html</code> 網頁，內含您勾選的<strong>「📋 公開課課綱對齊說明視窗」</strong>與<strong>「體育課哨音計時器」</strong>。</p>
+              <p>3. 觀課教師或競賽評審只要點擊網頁右上角的「課綱對齊」按鈕，即可一覽本教材對應之 <strong>A1/B2/C2 核心素養與學習重點</strong>！</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 4: SUMMARY (#summary)
+         ========================================== -->
+    <section id="panel-summary" role="tabpanel" hidden class="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm text-center space-y-6">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 font-rounded font-black text-3xl flex items-center justify-center mx-auto">
+          琴
+        </div>
+        <p class="text-xs font-bold tracking-widest uppercase text-emerald-600">把時間還給教學與陪伴</p>
+        <h2 class="font-rounded font-black text-3xl sm:text-4xl text-slate-900">
+          工具做苦工，<span class="text-emerald-600">老師做專業判斷</span>
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+          在健康與體育課堂上，最珍貴的是學生的汗水、眼神交流、情緒覺察與團隊合作。讓這套「健體領域 AI 共備與互動教材產生器」替您完成繁瑣的課綱對齊與程式碼封裝，把最溫暖的引導留在課堂裡！
+        </p>
+        <div class="flex flex-wrap justify-center gap-2 pt-2">
+          <span class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">#108課綱素養導向</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">#四大核心生活技能</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-amber-50 text-amber-800 text-xs font-bold">#SEL社會情緒學習</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-bold">#TGfU理解式球類戰術</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold">#公開課與教案競賽對齊</span>
+        </div>
+        <div class="pt-4 flex justify-center gap-3">
+          <a href="#interactive" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition">
+            返回互動教材提示詞產生器
+          </a>
+          <a href="#home" class="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition">
+            回到首頁
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 flex items-center gap-3">
+    <div class="w-8 h-8 rounded-xl bg-emerald-500 text-slate-950 font-black flex items-center justify-center">✓</div>
+    <div>
+      <div class="font-bold text-sm">提示詞已成功複製到剪貼簿！</div>
+      <div class="text-xs text-slate-300">請直接貼到 Gemini 或 ChatGPT 生成專屬教材</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="font-bold text-slate-700">國小健康與體育領域・一站式 AI 共備與互動教材提示詞產生器</div>
+      <div>設計：夏淑琴老師｜讓備課更快，把專業留在課堂裡</div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT ENGINE (Curriculum Data + Router + Compiler)
+       ========================================== -->
+  <script>
+    // 108 課綱健康與體育領域各學習階段指標資料庫
+    const CURRICULUM_DB = {
+      stage1: {
+        name: "第一學習階段（一、二年級）",
+        perf: [
+          { code: "1a-I-1", text: "認識基本的健康常識與身體各部位功能。", checked: true },
+          { code: "2a-I-1", text: "發覺影響健康的生活態度與情緒反應。", checked: true },
+          { code: "3a-I-1", text: "嘗試練習基本健康技能（如正確洗手、刷牙、護眼）。", checked: false },
+          { code: "3b-I-1", text: "舉例說明在生活中運用生活技能（表達感受、尋求協助）的方法。", checked: true },
+          { code: "3c-I-1", text: "表現基本動作與模仿的能力，體驗身體移動與平衡。", checked: false },
+          { code: "2c-I-2", text: "表現認真參與、遵守規則與尊重同伴的運動態度。", checked: false },
+          { code: "4a-I-2", text: "養成規律運動與健康生活的良好習慣。", checked: false }
+        ],
+        cont: [
+          { code: "Aa-I-1", text: "不同人生階段的成長、身體部位名稱與自我保護。", checked: true },
+          { code: "Ba-I-2", text: "眼耳鼻口牙的保健方法與日常生活安全。", checked: false },
+          { code: "Ea-I-2", text: "飲食與運動對健康的影響及良好飲食習慣。", checked: true },
+          { code: "Fa-I-2", text: "與家人及朋友和諧相處的方式與情緒表達。", checked: true },
+          { code: "Ga-I-1", text: "走、跑、跳與投擲遊戲。", checked: false },
+          { code: "Ha-I-1", text: "網／牆性、陣地攻守性與標的性球類遊戲。", checked: false },
+          { code: "Ia-I-1", text: "滾翻、支撐、平衡與創作性律動遊戲。", checked: false }
+        ]
+      },
+      stage2: {
+        name: "第二學習階段（三、四年級）",
+        perf: [
+          { code: "1a-II-2", text: "了解促進健康生活的方法與疾病預防原則。", checked: true },
+          { code: "2a-II-2", text: "注意健康問題所帶來的威脅感與嚴重性，培養自我覺察。", checked: true },
+          { code: "3b-II-2", text: "能於引導下在生活情境中演練自我調適、作決定與拒絕技能。", checked: true },
+          { code: "1d-II-1", text: "認識動作技能概念與運動比賽的基本規則。", checked: false },
+          { code: "2c-II-2", text: "表現增進團隊合作、同理他人與友善互動的行為。", checked: true },
+          { code: "3c-II-1", text: "表現聯合性基本動作技能，提升身體協調與控制。", checked: false },
+          { code: "3d-II-2", text: "運用比賽中的基本進攻與防守戰術策略（TGfU初階）。", checked: false },
+          { code: "4b-II-2", text: "使用運動與健康相關科技設備或簡易紀錄工具。", checked: true }
+        ],
+        cont: [
+          { code: "Aa-II-2", text: "青春期身體與心理的變化、個人衛生保健與身體界線。", checked: false },
+          { code: "Ba-II-2", text: "灼燙傷、出血、扭傷等常見意外傷害處理與運動安全。", checked: false },
+          { code: "Da-II-2", text: "視力、口腔保健、正確用藥與全民健保醫療資源珍惜。", checked: true },
+          { code: "Ea-II-3", text: "85210健康飲食與生活型態調整策略。", checked: true },
+          { code: "Fa-II-3", text: "情緒覺察、壓力調適與正向人際溝通技巧（SEL）。", checked: true },
+          { code: "Bb-II-1", text: "菸、酒、檳榔及網路3C過度使用的危害與拒絕策略。", checked: true },
+          { code: "Ab-II-1", text: "體適能要素（心肺、肌力、柔軟度、身體組成）認識與體驗。", checked: false },
+          { code: "Hb-II-1", text: "陣地攻守性球類（籃/足/手球）傳接、運球與空間移動。", checked: false },
+          { code: "Hc-II-1", text: "守備／跑分性與標的性球類（樂樂棒球／躲避球）擊球與傳接戰術。", checked: false }
+        ]
+      },
+      stage3: {
+        name: "第三學習階段（五、六年級）",
+        perf: [
+          { code: "1b-III-2", text: "認識健康技能與生活技能對健康維護的重要性。", checked: true },
+          { code: "2b-III-2", text: "願意培養正向健康態度與自主健康管理責任感。", checked: true },
+          { code: "3b-III-3", text: "能於生活與同儕情境中熟練運用批判性思考、問題解決與拒絕技能。", checked: true },
+          { code: "1c-III-2", text: "應用運動比賽的各項規則與運動戰術原理。", checked: true },
+          { code: "2c-III-3", text: "表現公平競爭、運動家精神與建設性解決團隊衝突的能力。", checked: true },
+          { code: "3d-III-2", text: "演練比賽中的進攻、防守、空間創造與團隊支援策略（TGfU進階）。", checked: true },
+          { code: "4a-III-3", text: "分析自我體適能與健康數據，擬定並執行改善計畫。", checked: false }
+        ],
+        cont: [
+          { code: "Aa-III-2", text: "青春期性生理發展、性別平等互動與數位網路交友安全界線。", checked: false },
+          { code: "Bb-III-2", text: "成癮物質（菸、酒、檳榔、新興毒品）媒體識讀與堅定拒絕技能。", checked: false },
+          { code: "Ea-III-2", text: "食品標示判讀、營養均衡規劃與健康體位自主管理。", checked: true },
+          { code: "Fa-III-2", text: "自我價值肯定、挫折復原力與人際衝突溝通解決（SEL）。", checked: true },
+          { code: "Ab-III-2", text: "體適能常模自我檢測分析與個人運動處方設計。", checked: true },
+          { code: "Ha-III-1", text: "網／牆性球類（排球、羽球、桌球、匹克球）擊球技術與空檔戰術。", checked: true },
+          { code: "Hb-III-1", text: "陣地攻守性球類（籃球、足球）團隊攻守轉換、掩護與空間支援。", checked: true },
+          { code: "Hc-III-1", text: "棒壘球／樂樂棒球打擊落點控制與內外野守備補位決策。", checked: false }
+        ]
+      }
+    };
+
+    // 路由切換邏輯 (支援 #home, #lesson-prep, #interactive, #summary)
+    function syncRouteFromHash() {
+      const hash = (window.location.hash || '#interactive').replace('#', '');
+      const validTabs = ['home', 'lesson-prep', 'interactive', 'summary'];
+      const activeTab = validTabs.includes(hash) ? hash : 'interactive';
+
+      validTabs.forEach(tab => {
+        const panel = document.getElementById('panel-' + tab);
+        if (panel) {
+          panel.hidden = (tab !== activeTab);
+        }
+      });
+
+      document.querySelectorAll('.nav-tab').forEach(link => {
+        const isCurrent = link.getAttribute('data-tab') === activeTab;
+        if (isCurrent) {
+          link.className = 'nav-tab px-3 py-1.5 rounded-lg text-sm font-black transition bg-emerald-600 text-white shadow-sm flex items-center gap-1';
+        } else {
+          link.className = 'nav-tab px-3 py-1.5 rounded-lg text-sm font-bold transition text-slate-600 hover:text-slate-900 hover:bg-white/70 flex items-center gap-1';
+        }
+      });
+    }
+
+    window.addEventListener('hashchange', syncRouteFromHash);
+
+    // 渲染「一站式健體備課」的課綱指標清單
+    function handleLpStageChange() {
+      const stageKey = document.getElementById('lp-stage').value;
+      const stageData = CURRICULUM_DB[stageKey];
+      const perfContainer = document.getElementById('lp-perf-container');
+      const contContainer = document.getElementById('lp-cont-container');
+
+      perfContainer.innerHTML = stageData.perf.map(item => `
+        <label class="flex items-start gap-2 cursor-pointer p-1.5 rounded-lg hover:bg-white transition">
+          <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileLessonPrepPrompt()" class="mt-0.5 rounded text-emerald-600 lp-perf-cb" />
+          <span><strong class="text-emerald-700">${item.code}</strong> ${item.text}</span>
+        </label>
+      `).join('');
+
+      contContainer.innerHTML = stageData.cont.map(item => `
+        <label class="flex items-start gap-2 cursor-pointer p-1.5 rounded-lg hover:bg-white transition">
+          <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileLessonPrepPrompt()" class="mt-0.5 rounded text-emerald-600 lp-cont-cb" />
+          <span><strong class="text-teal-700">${item.code}</strong> ${item.text}</span>
+        </label>
+      `).join('');
+
+      compileLessonPrepPrompt();
+    }
+
+    // 編譯「一站式健體備課」提示詞
+    function compileLessonPrepPrompt() {
+      const branch = document.getElementById('lp-branch').value;
+      const publisher = document.getElementById('lp-publisher').value;
+      const stageKey = document.getElementById('lp-stage').value;
+      const stageName = CURRICULUM_DB[stageKey].name;
+      const unitTitle = document.getElementById('lp-unit-title').value.trim() || '未命名健體單元';
+      const content = document.getElementById('lp-content').value.trim() || '（請由 AI 依據本單元主題與課綱指標自動規劃核心教材內容）';
+
+      const pedagogies = Array.from(document.querySelectorAll('#lp-pedagogy-group input:checked')).map(el => el.value);
+      const coreComps = Array.from(document.querySelectorAll('#lp-core-comp input:checked')).map(el => el.value);
+      const perfs = Array.from(document.querySelectorAll('.lp-perf-cb:checked')).map(el => el.value);
+      const conts = Array.from(document.querySelectorAll('.lp-cont-cb:checked')).map(el => el.value);
+      const tasks = Array.from(document.querySelectorAll('#lp-tasks-group input:checked')).map(el => el.value);
+
+      const prompt = `# Role: 臺灣 108 課綱國小「健康與體育領域」資深輔導員 ＆ 素養導向課程設計專家
+
+請依據以下設定，為我設計一套專業、溫暖、可直接用於公開授課或教學現場的健體領域備課資源：
+
+## 一、 課程基本設定
+- **領域分支**：${branch}
+- **教材來源**：${publisher}
+- **適用學習階段**：${stageName}
+- **單元名稱**：${unitTitle}
+- **核心教學架構**：
+${pedagogies.length ? pedagogies.map(p => `  - ${p}`).join('\n') : '  - 108 課綱素養導向與學生中心體驗教學'}
+
+## 二、 108 課綱健體領域對齊指標
+- **領域核心素養**：
+${coreComps.length ? coreComps.map(c => `  - ${c}`).join('\n') : '  - 健體-E-A1、健體-E-B2、健體-E-C2'}
+- **學習表現**：
+${perfs.length ? perfs.map(p => `  - ${p}`).join('\n') : '  - 請自動對齊最適合本年段之學習表現條目'}
+- **學習內容**：
+${conts.length ? conts.map(c => `  - ${c}`).join('\n') : '  - 請自動對齊最適合本年段之學習內容條目'}
+
+## 三、 單元核心內容與學生情境脈絡
+"""
+${content}
+"""
+
+## 四、 本次請為我產出的教學配件任務（請依序完整輸出，切勿省略）
+${tasks.length ? tasks.map((t, i) => `${i + 1}.${t}`).join('\n') : '1. 請產出完整素養導向教案與課堂提問鷹架。'}
+
+## 五、 輸出品質規範
+1. 請全面使用**臺灣繁體中文**與臺灣教育部 108 課綱標準術語（如：學習表現、學習內容、四大生活技能、TGfU 理解式球類教學、體適能四大要素）。
+2. 所有提問與活動設計請強調「真實生活情境遷移」，避免死背硬記，並以清楚的 Markdown 表格與階層標題呈現。`;
+
+      document.getElementById('lp-prompt-output').textContent = prompt;
+    }
+
+    function resetLessonPrep() {
+      document.getElementById('lp-unit-title').value = '';
+      document.getElementById('lp-content').value = '';
+      handleLpStageChange();
+    }
+
+    // 渲染「互動教材提示詞產生器」的課綱指標清單（依年級 1~6 連動）
+    let currentIwStage = 'stage2';
+    function handleIwGradeChange(gradeNum) {
+      if (gradeNum <= 2) {
+        currentIwStage = 'stage1';
+        document.getElementById('iw-bopomofo').checked = true;
+      } else if (gradeNum <= 4) {
+        currentIwStage = 'stage2';
+        document.getElementById('iw-bopomofo').checked = false;
+      } else {
+        currentIwStage = 'stage3';
+        document.getElementById('iw-bopomofo').checked = false;
+      }
+      renderIwCurriculumCheckboxes();
+      compileInteractivePrompt();
+    }
+
+    function renderIwCurriculumCheckboxes() {
+      const stageData = CURRICULUM_DB[currentIwStage];
+      const perfList = document.getElementById('iw-perf-list');
+      const contList = document.getElementById('iw-cont-list');
+
+      perfList.innerHTML = stageData.perf.map(item => `
+        <label class="flex items-start gap-1.5 cursor-pointer p-1 rounded hover:bg-indigo-50/60">
+          <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-indigo-600 iw-perf-cb" />
+          <span><strong class="text-indigo-700">${item.code}</strong> ${item.text}</span>
+        </label>
+      `).join('');
+
+      contList.innerHTML = stageData.cont.map(item => `
+        <label class="flex items-start gap-1.5 cursor-pointer p-1 rounded hover:bg-indigo-50/60">
+          <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-indigo-600 iw-cont-cb" />
+          <span><strong class="text-indigo-700">${item.code}</strong> ${item.text}</span>
+        </label>
+      `).join('');
+    }
+
+    // 5 大健體公開課快速範本套用
+    function applyInteractivePreset(presetKey) {
+      // 先取消所有互動模式勾選
+      document.querySelectorAll('#iw-modes-group input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+      if (presetKey === 'sel_health') {
+        document.querySelectorAll('input[name="iw-grade"]')[3].checked = true; // 四年級
+        handleIwGradeChange(4);
+        document.querySelectorAll('input[name="iw-domain"]')[3].checked = true; // 數位康健與拒絕技能
+        document.querySelectorAll('input[name="iw-arch"]')[0].checked = true;
+        document.querySelectorAll('input[name="iw-style"]')[0].checked = true;
+        document.getElementById('iw-title').value = '數位康健 ＆ 85210 健康生活守門員';
+        document.getElementById('iw-desc').value = '結合國小學生常見的 3C 熬夜與含糖手搖飲誘惑情境，引導學生透過四大核心生活技能（自我覺察、批判思考、作決定、拒絕技能）與 SEL 情緒覺察，完成健康作息診斷與同儕拒絕話術演練。';
+        document.getElementById('mode-sel').checked = true;
+        document.getElementById('mode-calc').checked = true;
+      } else if (presetKey === 'tgfu_sport') {
+        document.querySelectorAll('input[name="iw-grade"]')[4].checked = true; // 五年級
+        handleIwGradeChange(5);
+        document.querySelectorAll('input[name="iw-domain"]')[5].checked = true; // 陣地攻守球類 TGfU
+        document.querySelectorAll('input[name="iw-arch"]')[2].checked = true; // TGfU 電子戰術板
+        document.querySelectorAll('input[name="iw-style"]')[3].checked = true; // 競技戰術球場風
+        document.getElementById('iw-title').value = 'TGfU 球類戰術意識：創造空間與傳接支援大作戰';
+        document.getElementById('iw-desc').value = '運用理解式球類教學法（TGfU），讓學生在電子戰術板上拖曳進攻球員與防守球員，學習「1.無球跑位創造空間、2.三角傳接支援、3.攻守轉換快速回防」三大戰術意識，並透過戰術情境題進行決策判斷。';
+        document.getElementById('mode-tgfu').checked = true;
+        document.getElementById('mode-rubric').checked = true;
+      } else if (presetKey === 'fitness_85210') {
+        document.querySelectorAll('input[name="iw-grade"]')[5].checked = true; // 六年級
+        handleIwGradeChange(6);
+        document.querySelectorAll('input[name="iw-domain"]')[8].checked = true; // 體適能常模
+        document.querySelectorAll('input[name="iw-arch"]')[3].checked = true; // Bento Grid 儀表板
+        document.querySelectorAll('input[name="iw-style"]')[1].checked = true; // Bento 資訊風
+        document.getElementById('iw-title').value = '體適能常模診斷 ＆ 85210 個人運動處方計算機';
+        document.getElementById('iw-desc').value = '讓學生輸入身高體重（BMI）、腰臀比，以及教育部體適能四項檢測數據（坐姿體前彎、立定跳遠、仰臥捲腹、800公尺跑走），自動比對國小常模獎章等級，並結合 85210 產生專屬運動與營養改善計畫。';
+        document.getElementById('mode-calc').checked = true;
+        document.getElementById('mode-drag').checked = true;
+      } else if (presetKey === 'puberty_adventure') {
+        document.querySelectorAll('input[name="iw-grade"]')[3].checked = true; // 四年級
+        handleIwGradeChange(4);
+        document.querySelectorAll('input[name="iw-domain"]')[1].checked = true; // 青春期與身體界線
+        document.querySelectorAll('input[name="iw-arch"]')[1].checked = true; // RPG 闖關
+        document.querySelectorAll('input[name="iw-style"]')[2].checked = true; // 溫馨繪本風
+        document.getElementById('iw-title').value = '青春期大冒險！身體密碼與界線守護者';
+        document.getElementById('iw-desc').value = '設計 10 分鐘沉浸式 RPG 闖關遊戲，帶領四年級學生認識男女青春期第二性徵變化、破除生理期與成長迷思、尊重個別差異（性別平等），並透過情境演練學會表達身體界線與自我保護。';
+        document.getElementById('mode-sel').checked = true;
+        document.getElementById('mode-drag').checked = true;
+      } else if (presetKey === 'pe_rubric') {
+        document.querySelectorAll('input[name="iw-grade"]')[1].checked = true; // 二年級
+        handleIwGradeChange(2);
+        document.querySelectorAll('input[name="iw-domain"]')[9].checked = true; // 身體平衡與靜心收操
+        document.querySelectorAll('input[name="iw-arch"]')[0].checked = true;
+        document.querySelectorAll('input[name="iw-style"]')[0].checked = true;
+        document.getElementById('iw-title').value = 'Body Parts 通關密碼：動作平衡互評 ＆ 3分鐘靜心收操';
+        document.getElementById('iw-desc').value = '結合身體部位辨識與支撐平衡挑戰，讓學生兩人一組使用平板進行「動作技能同儕檢核表」互評，並在課程尾聲啟動「3 分鐘正念呼吸與祓除煩躁收操引導器」，協助學生平復心率與覺察身體感受。';
+        document.getElementById('mode-rubric').checked = true;
+        document.getElementById('mode-mindful').checked = true;
+      }
+
+      compileInteractivePrompt();
+    }
+
+    // 核心編譯器：組裝「互動教材提示詞」
+    function compileInteractivePrompt() {
+      const grade = document.querySelector('input[name="iw-grade"]:checked')?.value || '';
+      const useBopomofo = document.getElementById('iw-bopomofo').checked;
+      const domain = document.querySelector('input[name="iw-domain"]:checked')?.value || '';
+      const arch = document.querySelector('input[name="iw-arch"]:checked')?.value || '';
+      const collapseHeader = document.getElementById('iw-collapse-header').checked;
+      const outdoorMode = document.getElementById('iw-outdoor-mode').checked;
+      const style = document.querySelector('input[name="iw-style"]:checked')?.value || '';
+      const hFont = document.getElementById('iw-heading-font').value;
+      const hSize = document.getElementById('iw-heading-size').value;
+      const bFont = document.getElementById('iw-body-font').value;
+      const bSize = document.getElementById('iw-body-size').value;
+
+      const title = document.getElementById('iw-title').value.trim() || '國小健康與體育互動教學網';
+      const desc = document.getElementById('iw-desc').value.trim() || '請依據所選主題自動設計符合國小認知發展之健體教學內容。';
+
+      const publicModal = document.getElementById('iw-public-lesson-modal').checked;
+      const comps = Array.from(document.querySelectorAll('#iw-comp-group input:checked')).map(el => el.value);
+      const perfs = Array.from(document.querySelectorAll('.iw-perf-cb:checked')).map(el => el.value);
+      const conts = Array.from(document.querySelectorAll('.iw-cont-cb:checked')).map(el => el.value);
+
+      const modes = Array.from(document.querySelectorAll('#iw-modes-group input:checked')).map(el => el.value);
+      const quizTypes = Array.from(document.querySelectorAll('#iw-quiz-group input:checked')).map(el => el.value);
+
+      const toolTimer = document.getElementById('tool-timer-whistle').checked;
+      const toolScore = document.getElementById('tool-scoreboard').checked;
+      const toolBoard = document.getElementById('tool-whiteboard').checked;
+      const toolCert = document.getElementById('tool-certificate').checked;
+
+      const extUrl = document.getElementById('iw-ext-url').value.trim();
+      const author = document.getElementById('iw-author').value.trim();
+
+      let floatingToolsList = [];
+      if (toolTimer) floatingToolsList.push('- **⏱️ 體育課間歇計時器 ＆ 電子哨音器（Web Audio API）**：提供 30秒/60秒/180秒倒數計時，以及一鍵觸發合成「長哨音、短哨音、集合鈴聲」的按鈕（完全使用原生 AudioContext 合成，零外部音檔依賴）。');
+      if (toolScore) floatingToolsList.push('- **🏆 分組競賽即時加扣分計分板**：可展開 2～6 個小組計分卡，支援一鍵 +1 / -1 與領先皇冠特效。');
+      if (toolBoard) floatingToolsList.push('- **✏️ 懸浮半透明手寫戰術白板（Canvas 塗鴉層）**：點擊可覆蓋全螢幕半透明畫布，支援紅/藍/綠畫筆、橡皮擦與一鍵清除，方便老師在觸控大屏或球場圖上畫線講解。');
+      if (toolCert) floatingToolsList.push('- **📸 學習成果與健康承諾卡產生器（Canvas 繪圖匯出）**：學生完成學習與測驗後，可輸入姓名、勾選今日健康/運動自我承諾，一鍵產生並下載 PNG 專屬榮譽證書。');
+
+      const prompt = `# Role: 資深前端互動教學網頁工程師 ＆ 國小健康與體育領域課程設計專家
+
+請為我設計並輸出一份**完整、不省略任何程式碼、可直接儲存為 \`index.html\` 離線執行的單一檔案互動教學網頁應用程式（Single-File HTML5 SPA）**。
+
+---
+
+## 一、 教學對象與健體領域核心設定
+- **單元主標題**：${title}
+- **適用年級**：${grade}
+- **健體領域主題**：${domain}
+- **核心教學內容與情境脈絡**：
+"""
+${desc}
+"""
+${useBopomofo ? '- **低中年級無障礙支援**：請引入注音相容字型設定，並在每段重點說明與題目旁加上「🔊 語音朗讀」按鈕（呼叫瀏覽器原生 `window.speechSynthesis` 以臺灣國語 `zh-TW` 朗讀文字）。' : '- **語音輔助支援**：在情境對話與重點卡片旁提供「🔊 語音朗讀」按鈕（使用 `window.speechSynthesis` `zh-TW`）。'}
+
+---
+
+## 二、 公開課／教案競賽課綱對齊規範${publicModal ? '（★必備：內建觀課與評審專屬說明視窗）' : ''}
+${publicModal ? `請在網站頂部導覽列最右側設計一顆醒目的按鈕：**「📋 課綱與教學設計對齊（觀課／評審專區）」**。點擊後彈出精緻的 Modal 視窗，清楚列出本互動教材對齊之 108 課綱指標與教學設計理念，內容必須完整包含：` : '本教材內部設計請嚴格對齊以下 108 課綱健康與體育領域指標：'}
+1. **領域核心素養**：
+${comps.length ? comps.map(c => `   - ${c}`).join('\n') : '   - 健體-E-A1、健體-E-B2、健體-E-C2'}
+2. **學習表現**：
+${perfs.length ? perfs.map(p => `   - ${p}`).join('\n') : '   - 請依據本單元自動對齊對應之健體學習表現'}
+3. **學習內容**：
+${conts.length ? conts.map(c => `   - ${c}`).join('\n') : '   - 請依據本單元自動對齊對應之健體學習內容'}
+4. **教學法與評量轉化說明**：說明本網頁如何將「生活技能／SEL 社會情緒學習／TGfU 戰術意識」轉化為學生的數位互動決策歷程。
+
+---
+
+## 三、 網站架構、場域適配與視覺排版規範
+- **網站架構**：${arch}
+- **視覺風格**：${style}（請使用 Tailwind CSS CDN 搭配自訂 CSS 變數與精緻的 SVG 圖示／Emoji 視覺化，嚴禁使用會破圖的外部圖片網址）。
+- **字型與字級規範**：
+  - 標題字型：${hFont}，主標題字級約 \`${hSize}px\`（響應式自動縮放）。
+  - 內文字型：${bFont}，內文與題目選項字級約 \`${bSize}px\`，確保教室後排學生也能清晰閱讀。
+${collapseHeader ? '- **大屏投影視野最佳化**：請在頂部導覽列提供「🔼 收起頂欄 ／ 🔽 展開頂欄」切換按鈕，收折後可釋放最大垂直畫面供觸控大屏操作。' : ''}
+${outdoorMode ? '- **體育館／操場平板觸控最佳化**：所有互動按鈕、選項卡片與拖曳元件的點擊熱區高度必須 ≥ 52px，並同時支援滑鼠事件與平板觸控事件（Pointer Events / Touch Events），色彩對比度需清晰防反光。' : ''}
+${extUrl ? `- **外部教學資源整合**：請於頁面中設計一個「🔗 延伸多媒體資源」區塊或彈窗，嵌入或連結至：\`${extUrl}\`` : ''}
+${author ? `- **專屬署名**：請於網頁頁尾（Footer）與公開課說明視窗清楚標示：**「${author}」**。` : ''}
+
+---
+
+## 四、 核心互動教學模組（請完整實作以下所有互動功能，具備真實 JS 狀態與回饋）
+${modes.length ? modes.map((m, idx) => `${idx + 1}.${m}`).join('\n') : '1. 請設計符合本單元主題的情境決策闖關與視覺化互動模組。'}
+
+---
+
+## 五、 10 題素養導向隨堂測驗與即時回饋系統
+請在「隨堂挑戰／素養測驗」分頁中，內建 **10 題高品質素養情境題**：
+- **包含題型**：${quizTypes.length ? quizTypes.join('、') : '生活情境單選題與是非題'}。
+- **互動機制**：
+  1. 學生每答完一題，立即顯示「正確／再想一下」視覺回饋、音效（Web Audio API 合成叮咚聲或鼓勵音），以及**詳盡的健體素養解析（點出對應的生活技能或運動戰術關鍵）**。
+  2. 具備進度條、計分板、錯題重練功能，以及完賽後的星級評定。
+
+---
+
+## 六、 健體課堂專用懸浮工具箱（固定於畫面右下角可展開/收合）
+請在畫面角落設計一個不遮擋主畫面的懸浮工具箱按鈕（🧰 課堂工具），點擊可開啟以下實用工具：
+${floatingToolsList.length ? floatingToolsList.join('\n') : '- 提供課堂計時器與重點標註白板。'}
+
+---
+
+## 七、 輸出格式強制規範（CRITICAL）
+1. 請**只輸出一個完整的 HTML 程式碼區塊（\` \`\`\`html ... \`\`\` \`）**，包含 \`<!DOCTYPE html>\`、\`<style>\` 與完整的 \`<script>\`。
+2. **嚴禁使用 \`// ...其餘程式碼省略\` 或未完成的佔位符**，所有 10 道題目、所有互動關卡資料陣列、SVG 球場/圖表與 Canvas 邏輯都必須完整寫出，確保老師複製儲存為 \`index.html\` 後雙擊即可 100% 正常運作！`;
+
+      const outputEl = document.getElementById('iw-prompt-output');
+      outputEl.textContent = prompt;
+      document.getElementById('iw-char-count').textContent = prompt.length.toLocaleString() + ' 字';
+    }
+
+    // 複製與下載工具函式
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast();
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast();
+      });
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    function downloadPromptTxt() {
+      const text = document.getElementById('iw-prompt-output').textContent;
+      const title = document.getElementById('iw-title').value.trim() || '健體互動教材提示詞';
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${title}_AI提示詞.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // 初始化啟動
+    window.addEventListener('DOMContentLoaded', () => {
+      syncRouteFromHash();
+      handleLpStageChange();
+      renderIwCurriculumCheckboxes();
+      compileInteractivePrompt();
+    });
+  </script>
+</body>
+</html>
