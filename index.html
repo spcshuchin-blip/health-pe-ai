@@ -238,8 +238,8 @@
             <select id="lp-branch" onchange="compileLessonPrepPrompt()" class="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium focus:border-emerald-500 focus:ring-emerald-500">
               <option value="健康教育（生活技能與健康素養導向）">🍎 健康教育（生活技能／健康素養）</option>
               <option value="體育科：競爭類型球類運動（TGfU 戰術意識導向）">🏀 體育：競爭類型球類運動（TGfU）</option>
-              <option value="體育科：挑戰類型運動（田徑／體適能／游泳）">🏃 體育：挑戰類型運動（田徑／體適能）</option>
-              <option value="體育科：表現類型與休閒運動（體操／舞蹈／民俗／防衛）">🤸 體育：表現類型與休閒防衛運動</option>
+              <option value="體育科：挑戰類型運動（田徑／體適能／游泳）">🏃 體育：挑戰類型運動（田徑／游泳/體適能）</option>
+              <option value="體育科：表現類型與休閒運動（體操／舞蹈／民俗／防衛）">🤸 體育：表現類型與休閒性、防衛性運動</option>
               <option value="健體領域跨子科整合（動態身體活動結合健康管理）">⚡ 健體跨子科整合（身體活動＋健康管理）</option>
             </select>
           </div>
@@ -276,7 +276,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5" id="lp-pedagogy-group">
             <label class="cursor-pointer">
               <input type="checkbox" value="四大核心生活技能（自我覺察、批判性思考、作決定、拒絕技能）" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
-              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">🧠 四大生活技能（覺察/思考/決定/拒絕）</div>
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">🧠 四大生活技能（自我覺察/批判思考/做決定/拒絕）</div>
             </label>
             <label class="cursor-pointer">
               <input type="checkbox" value="SEL 社會情緒學習（自我覺察、自我管理、社會覺察、人際技巧、負責任的決定）" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
@@ -296,7 +296,7 @@
             </label>
             <label class="cursor-pointer">
               <input type="checkbox" value="生生用平板／數位工具自主學習與即時回饋紀錄" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
-              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">📱 數位平板融入與自主學習回饋</div>
+              <div class="p-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 transition">📱 數位平板融入與自主學習</div>
             </label>
           </div>
         </div>
@@ -330,34 +330,12 @@
         <!-- Core Competencies -->
         <div>
           <label class="block text-xs font-bold text-emerald-800 mb-2">📌 健體領域核心素養（公開課／教案必備）：</label>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5" id="lp-core-comp">
-            <label class="cursor-pointer">
-              <input type="checkbox" value="健體-E-A1 具備良好身體活動與健康生活的習慣，以促進身心健全發展，並認識個人特質，發展運動與保健潛能。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
-              <div class="p-3 rounded-xl border border-slate-200 text-xs transition">
-                <span class="font-black text-emerald-700 block">健體-E-A1 身心素質與自我精進</span>
-                <span class="text-slate-600">具備良好身體活動與健康生活習慣，發展運動與保健潛能</span>
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="checkbox" value="健體-E-B2 具備應用體育與健康相關科技、資訊及媒體的基本素養，並能批判思考與善用健康資訊與資源。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
-              <div class="p-3 rounded-xl border border-slate-200 text-xs transition">
-                <span class="font-black text-emerald-700 block">健體-E-B2 科技資訊與媒體素養</span>
-                <span class="text-slate-600">善用體育與健康科技資訊，批判思考健康資源</span>
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="checkbox" value="健體-E-C2 具備同理他人感受，在體育活動和健康生活中樂於與人互動、公平競爭，並與團隊成員合作，促進身心健康。" checked onchange="compileLessonPrepPrompt()" class="sr-only card-check" />
-              <div class="p-3 rounded-xl border border-slate-200 text-xs transition">
-                <span class="font-black text-emerald-700 block">健體-E-C2 人際關係與團隊合作</span>
-                <span class="text-slate-600">同理感受、正向互動、公平競爭與團隊合作</span>
-              </div>
-            </label>
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5" id="lp-core-comp"><!-- 依領綱原文呈現九項核心素養 --></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
           <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <h4 class="text-xs font-black text-slate-800 mb-2">🎯 學習表現（認知 1a~1d / 情意 2a~2d / 技能 3a~3d / 行為 4a~4b）</h4>
+            <h4 class="text-xs font-black text-slate-800 mb-2">🎯 學習表現（認知 1a~1d / 情意 2a~2d / 技能 3a~3d / 行為 4a~4d）</h4>
             <div id="lp-perf-container" class="space-y-1.5 max-h-52 overflow-y-auto pr-1 text-xs"></div>
           </div>
           <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
@@ -512,15 +490,15 @@
                   <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🚑 健康：安全急救、運動防護 ＆ 健保素養</div>
                 </label>
                 <label class="cursor-pointer">
-                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：陣地攻守球類（籃球／足球／手球）TGfU戰術與技能" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
-                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🏀 體育：陣地攻守球類（籃/足/手球 TGfU）</div>
+                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：陣地攻守性球類（籃球／足球／手球）TGfU戰術與技能" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🏀 體育：陣地攻守性球類（籃/足/手球 TGfU）</div>
                 </label>
                 <label class="cursor-pointer">
                   <input type="radio" name="iw-domain" value="體育科（競爭類型）：網牆性球類（排球／羽球／桌球／匹克球）空間與擊球決策" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
                   <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🏸 體育：網牆性球類（排/羽/桌/匹克球）</div>
                 </label>
                 <label class="cursor-pointer">
-                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：守備跑分與標的性球類（樂樂棒球／躲避球）戰術與團隊支援" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
+                  <input type="radio" name="iw-domain" value="體育科（競爭類型）：守備跑分性球類與躲避球（樂樂棒球／躲避球）戰術與團隊支援" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
                   <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">⚾ 體育：樂樂棒球 ／ 躲避球戰術意識</div>
                 </label>
                 <label class="cursor-pointer">
@@ -531,7 +509,16 @@
                   <input type="radio" name="iw-domain" value="健體跨領域統整：運動規則判讀、裁判手勢、運動家精神與課堂正念靜心收操" onchange="compileInteractivePrompt()" class="sr-only card-check-orange" />
                   <div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold flex items-center gap-2">🧘 體育：規則判讀、團隊精神 ＆ 靜心收操</div>
                 </label>
-              </div>
+              <label class="cursor-pointer"><input type="radio" name="iw-domain" value="體育：SEL個人與社會責任模式（TPSR）" class="sr-only card-check-orange" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold">🤝 體育：SEL 個人與社會責任模式</div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-domain" value="體育：標的性球類與新興運動" class="sr-only card-check-orange" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold">🎯 體育：標的性球類與新興運動</div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-domain" value="自訂健體主題" class="sr-only card-check-orange" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold">✏️ 自行輸入主題</div></label>
+</div>
+<div id="iw-custom-topic-box" hidden class="mt-3 p-3 rounded-xl bg-orange-50 border border-orange-200">
+  <label for="iw-custom-topic" class="block text-sm font-bold mb-2">自行輸入健體主題</label>
+  <input id="iw-custom-topic" type="text" maxlength="120" oninput="syncIwCustomTopic()" placeholder="例如：飛盤合作挑戰、樂齡運動共學" class="w-full rounded-lg border border-orange-300 p-3 text-sm" />
+  <p class="text-xs text-slate-600 mt-2">請在第 3 步補充教學重點，並自行勾選適用的核心素養、學習表現與學習內容。</p>
+</div>
+
             </div>
           </div>
 
@@ -544,8 +531,8 @@
 
             <!-- Web App Architecture -->
             <div class="space-y-2">
-              <label class="text-xs font-bold text-slate-700 block">網站架構類型：</label>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <label class="text-xs font-bold text-slate-700 block">網站架構類型（單選）：</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="iw-arch-group">
                 <label class="cursor-pointer">
                   <input type="radio" name="iw-arch" value="多分頁標籤式教學工作台（頂部清楚切換：觀念導讀 → 互動演練 → 情境闖關 → 隨堂測驗）" checked onchange="compileInteractivePrompt()" class="sr-only card-check" />
                   <div class="p-3 rounded-xl border border-slate-200 text-xs">
@@ -556,7 +543,7 @@
                 <label class="cursor-pointer">
                   <input type="radio" name="iw-arch" value="RPG 闖關大冒險（設定角色生命值/能量條，依序突破 3~4 個生活情境或戰術關卡解鎖徽章）" onchange="compileInteractivePrompt()" class="sr-only card-check" />
                   <div class="p-3 rounded-xl border border-slate-200 text-xs">
-                    <span class="font-bold block text-slate-900">🎮 RPG 闖關大冒險（Level Quest）</span>
+                    <span class="font-bold block text-slate-900">🎮 闖關冒險關卡式（Quest Mode／RPG）</span>
                     <span class="text-slate-500">含能量條、情境解鎖與過關證書，學生動機最高</span>
                   </div>
                 </label>
@@ -574,7 +561,18 @@
                     <span class="text-slate-500">適合 85210 追蹤、體適能常模比對與身體組成</span>
                   </div>
                 </label>
-              </div>
+              <label class="cursor-pointer"><input type="radio" name="iw-arch" value="一站式長滾動（One-Page）：在同一頁依序呈現情境引導、操作體驗、課堂評量與學習反思；提供段落導覽與回到頂部，保留各區操作狀態。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">↕️ 一站式長滾動（One-Page）</span><span class="text-slate-500">情境引導 → 操作體驗 → 課堂評量，一頁到底</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-arch" value="互動故事繪本式（Storybook）：以繪本翻頁呈現角色與故事情境，將觀念、互動選擇及回饋放入情節；提供上一頁、下一頁、頁碼與重新閱讀，適合低年級。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">📖 互動故事繪本式（Storybook）</span><span class="text-slate-500">繪本翻頁感、角色情境對話，適合低年級</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-arch" value="單一聚焦操作台（Dashboard Canvas）：將主要操作區、任務說明、狀態及回饋集中在同一工作台；桌面大螢幕優先避免來回捲動，小螢幕採可切換面板或直向排列，確保控制項不被截斷。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">🖥️ 單一聚焦操作台（Dashboard Canvas）</span><span class="text-slate-500">適合大螢幕投影，操作區與儀表板集中</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-arch" value="寫作教學引導網頁（五關階梯式引導寫作架構）：依序提供「審題放大鏡 → 靈感九宮格 → 結構建築師 → 寫作魔法師 → 我是小作家」；每關有輸入、引導與回饋，保留各關內容，最後一鍵組裝並輸出作品。請依所選健體主題轉化為觀察紀錄、運動經驗敘寫或健康行動反思，避免改變原本的學習目標。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">🪶 寫作教學引導網頁（五關階梯式引導寫作架構）</span><span class="text-slate-500">審題放大鏡 → 靈感九宮格 → 結構建築師 → 寫作魔法師 → 我是小作家</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-arch" value="自訂頁面架構" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">📝 自訂頁面架構（自己寫架構）</span><span class="text-slate-500">由老師決定章節、版面與互動流程</span></div></label>
+</div>
+<div id="iw-custom-arch-box" hidden class="mt-3 p-3 rounded-xl border border-emerald-200 bg-emerald-50">
+  <label for="iw-custom-arch" class="block text-xs font-bold text-slate-800 mb-2">請輸入您自訂的網頁架構與流程說明：</label>
+  <textarea id="iw-custom-arch" rows="4" maxlength="6000" oninput="compileInteractivePrompt()" placeholder="例如：第一區先呈現運動情境，第二區是戰術操作板，第三區是小組討論，最後提供反思與學習成果下載。" class="w-full rounded-lg border border-slate-300 p-3 text-sm leading-relaxed"></textarea>
+  <p id="iw-custom-arch-hint" role="status" class="text-xs text-slate-600 mt-2">請填寫各區塊內容、操作順序及希望提供的回饋。</p>
+</div>
+
             </div>
 
             <!-- Venue Optimization Checkboxes -->
@@ -592,15 +590,20 @@
 
             <!-- Visual Styles -->
             <div class="space-y-2">
-              <label class="text-xs font-bold text-slate-700 block">視覺美學風格：</label>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <label class="text-xs font-bold text-slate-700 block">視覺美學風格（單選）：</label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="iw-style-group">
                 <label class="cursor-pointer"><input type="radio" name="iw-style" value="多巴胺活力運動風（高飽和鮮明色彩、圓角卡片、充滿朝氣的運動徽章感）" checked onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🌈 多巴胺活力運動風</div></label>
                 <label class="cursor-pointer"><input type="radio" name="iw-style" value="現代 Bento Grid 資訊圖表風（清爽淺色背景、精緻邊框、高資訊密度與直覺圖表）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🍱 現代 Bento 資訊風</div></label>
                 <label class="cursor-pointer"><input type="radio" name="iw-style" value="溫馨繪本療癒風（柔和大地與粉彩配色、適合情緒覺察SEL、青春期與靜心引導）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🌿 溫馨繪本療癒風</div></label>
                 <label class="cursor-pointer"><input type="radio" name="iw-style" value="競技戰術運動場風（深綠/木紋球場元素搭配醒目螢光標記，極具臨場感）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🏟️ 競技戰術球場風</div></label>
-                <label class="cursor-pointer"><input type="radio" name="iw-style" value="電玩像素闖關風（8-bit / 街機遊戲感、生命值愛心與金幣音效，提升遊戲化動機）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">👾 電玩遊戲闖關風</div></label>
+                <label class="cursor-pointer"><input type="radio" name="iw-style" value="像素冒險風（8-bit / 街機遊戲感、生命值愛心與金幣音效，提升遊戲化動機）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">👾 像素冒險風（電玩闖關）</div></label>
                 <label class="cursor-pointer"><input type="radio" name="iw-style" value="清新醫療健康實驗室風（薄荷綠與天空藍、乾淨專業、適合衛教與急救健保主題）" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-center">🩺 清新醫療衛教風</div></label>
-              </div>
+              <label class="cursor-pointer"><input type="radio" name="iw-style" value="溫潤莫蘭迪風：以低飽和灰綠、米白及暖灰為主，柔和圓角與留白營造沉穩專注感；文字與操作元件仍須有足夠對比，不使用低對比文字。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">🌿 溫潤莫蘭迪風</span><span class="text-slate-500">柔和低飽和、專注護眼</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-style" value="可愛卡通風：以繽紛馬卡龍色、親和角色、圓潤圖示與活潑卡片呈現內容；使用 SVG、CSS 或 Emoji 繪製角色，搭配明確的操作與回饋，避免裝飾遮擋教學內容。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">🟡 可愛卡通風</span><span class="text-slate-500">繽紛馬卡龍色、充滿活力</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-style" value="清新簡約風：以清爽白底、少量藍綠點綴、清楚層級與俐落排版為主，減少裝飾，凸顯題目、操作與回饋。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">🩵 清新簡約風</span><span class="text-slate-500">清爽白底、排版俐落專注</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-style" value="童話繪本風：以溫暖大地色、紙張質感、手繪感 SVG 與故事場景營造沉浸感；卡片像繪本頁面，角色對話清楚易讀，並保留明確的學習操作。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">📚 童話繪本風</span><span class="text-slate-500">溫暖大地色、故事沉浸感</span></div></label>
+<label class="cursor-pointer"><input type="radio" name="iw-style" value="科技探索風：以星空、太空探索或實驗室儀表為視覺語彙，深藍與紫色搭配明亮狀態標記及數據面板；控制動畫頻率、保留清晰文字對比，避免閃爍特效。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs h-full"><span class="font-bold block text-slate-900">🚀 科技探索風</span><span class="text-slate-500">星空太空感、實驗室儀表</span></div></label>
+</div>
             </div>
 
             <!-- Typography Sliders -->
@@ -647,6 +650,8 @@
 
             <!-- Unit Title & Content -->
             <div class="space-y-3">
+              <p class="text-xs text-indigo-700">標題與重點會依第 1 步的年級、主題帶入建議；自行編輯的文字會保留在該主題，重新整理後清除。課綱建議請由教師確認。</p>
+              <button type="button" onclick="resetIwTopicText()" class="px-3 py-2 rounded-lg border border-indigo-200 text-xs font-bold text-indigo-700">重新帶入目前主題建議（取代標題與重點）</button>
               <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1">互動教材單元主標題：</label>
                 <input type="text" id="iw-title" oninput="compileInteractivePrompt()" value="數位康健 ＆ 85210 健康生活守門員" placeholder="請輸入單元名稱，如：匹克球空間戰術王、青春期大冒險..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm font-bold text-slate-900" />
@@ -673,60 +678,17 @@
               <!-- Core Competencies Checkboxes (A1, B2, C2 + A2, A3, B1) -->
               <div class="space-y-2">
                 <label class="text-xs font-bold text-indigo-900 block">勾選要寫入網頁「觀課／評審說明視窗」的 108 課綱核心素養：</label>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="iw-comp-group">
-                  <label class="cursor-pointer">
-                    <input type="checkbox" value="【A1 身心素質與自我精進（健體-E-A1）】具備良好身體活動與健康生活的習慣，以促進身心健全發展，並認識個人特質，發展運動與保健潛能。" checked onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
-                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
-                      <span class="font-black text-indigo-700 block">A1 身心素質與自我精進</span>
-                      <span class="text-slate-600 text-[11px]">健體-E-A1 良好健康與運動習慣</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="checkbox" value="【B2 科技資訊與媒體素養（健體-E-B2）】具備應用體育與健康相關科技、資訊及媒體的基本素養，並能批判思考與善用健康資訊與資源。" checked onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
-                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
-                      <span class="font-black text-indigo-700 block">B2 科技資訊與媒體素養</span>
-                      <span class="text-slate-600 text-[11px]">健體-E-B2 善用健康與體育科技</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="checkbox" value="【C2 人際關係與團隊合作（健體-E-C2）】具備同理他人感受，在體育活動和健康生活中樂於與人互動、公平競爭，並與團隊成員合作，促進身心健康。" checked onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
-                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
-                      <span class="font-black text-indigo-700 block">C2 人際關係與團隊合作</span>
-                      <span class="text-slate-600 text-[11px]">健體-E-C2 同理互動與團隊合作</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="checkbox" value="【A2 系統思考與解決問題（健體-E-A2）】具備探索身體活動與健康生活問題的思考能力，並透過體驗與實踐，處理日常生活與運動情境的問題。" onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
-                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
-                      <span class="font-black text-indigo-700 block">A2 系統思考與解決問題</span>
-                      <span class="text-slate-600 text-[11px]">健體-E-A2 探索與解決健康運動問題</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="checkbox" value="【A3 規劃執行與創新應變（健體-E-A3）】具備擬定基本的運動與保健計畫，並透過自我激勵與監控，落實於日常生活中。" onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
-                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
-                      <span class="font-black text-indigo-700 block">A3 規劃執行與創新應變</span>
-                      <span class="text-slate-600 text-[11px]">健體-E-A3 擬定與執行運動保健計畫</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="checkbox" value="【B1 符號運用與溝通表達（健體-E-B1）】具備運用體育與健康相關符號知能，在運動與健康情境中進行表達、溝通與實踐。" onchange="compileInteractivePrompt()" class="sr-only card-check-indigo" />
-                    <div class="p-2.5 rounded-xl border border-indigo-200 bg-white text-xs transition">
-                      <span class="font-black text-indigo-700 block">B1 符號運用與溝通表達</span>
-                      <span class="text-slate-600 text-[11px]">健體-E-B1 運動與健康溝通表達</span>
-                    </div>
-                  </label>
-                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="iw-comp-group"><!-- 依領綱原文呈現九項核心素養 --></div>
               </div>
 
               <!-- Quick Learning Indicators for Interactive Modal -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div class="bg-white p-3 rounded-xl border border-indigo-100">
-                  <div class="text-xs font-bold text-indigo-900 mb-1.5">對應學習表現（依所選年級自動切換）：</div>
+                  <div class="text-xs font-bold text-indigo-900 mb-1.5">對應學習表現（依年級列出完整原文；主題建議可調整）：</div>
                   <div id="iw-perf-list" class="space-y-1 max-h-36 overflow-y-auto text-xs"></div>
                 </div>
                 <div class="bg-white p-3 rounded-xl border border-indigo-100">
-                  <div class="text-xs font-bold text-indigo-900 mb-1.5">對應學習內容（依所選年級自動切換）：</div>
+                  <div class="text-xs font-bold text-indigo-900 mb-1.5">對應學習內容（依年級列出完整原文；主題建議可調整）：</div>
                   <div id="iw-cont-list" class="space-y-1 max-h-36 overflow-y-auto text-xs"></div>
                 </div>
               </div>
@@ -791,6 +753,9 @@
                   <p class="text-slate-500">動態呼吸光圈＋溫和合成音頻，協助體育課後情緒收斂</p>
                 </div>
               </label>
+
+              <label class="cursor-pointer"><input type="checkbox" id="mode-responsibility" value="【SEL 與 TPSR 責任實踐反思工作坊】：設計尊重與自我控制、參與及努力、自我導向、協助他人與領導、課堂外遷移等可觀察責任目標；提供活動前目標選擇、活動中合作情境決策、課後自評互評與具體行動反思。依選擇呈現說明與下一步建議，避免將責任表現排名或作人格診斷。教學參考：https://www.tpsralliance.org/physical-education。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 h-full"><div class="font-black text-slate-900">🤝 7. SEL 與 TPSR 責任實踐反思</div><p class="text-slate-500">設定責任目標、情境決策、自評互評與課堂外遷移</p></div></label>
+              <label class="cursor-pointer"><input type="checkbox" id="mode-target" value="【標的性與新興運動策略挑戰】：提供適齡的目標區域示意與點選或拖曳操作，讓學生調整方向、力量與落點，先預測再試驗，記錄嘗試結果並說明策略調整；設置器材安全、輪流操作與差異化距離選項。依教師指定的新興運動規則設計，不宣稱所有新興運動皆屬標的性。" onchange="compileInteractivePrompt()" class="sr-only card-check" /><div class="p-3 rounded-xl border border-slate-200 text-xs space-y-1 h-full"><div class="font-black text-slate-900">🎯 8. 標的性與新興運動策略挑戰</div><p class="text-slate-500">瞄準、控力、落點預測與練習策略反思</p></div></label>
             </div>
           </div>
 
@@ -887,7 +852,7 @@
               <div class="font-bold text-amber-300 flex items-center gap-1.5">💡 公開課與研習實戰小撇步：</div>
               <p>1. 點擊「一鍵複製」後，貼入 <strong>Gemini（開啟 Canvas 功能）</strong> 或 <strong>ChatGPT</strong>。</p>
               <p>2. AI 會直接產出一份完整的單一 <code>index.html</code> 網頁，內含您勾選的<strong>「📋 公開課課綱對齊說明視窗」</strong>與<strong>「體育課哨音計時器」</strong>。</p>
-              <p>3. 觀課教師或競賽評審只要點擊網頁右上角的「課綱對齊」按鈕，即可一覽本教材對應之 <strong>A1/B2/C2 核心素養與學習重點</strong>！</p>
+              <p>3. 觀課教師或競賽評審只要點擊網頁右上角的「課綱對齊」按鈕，即可一覽本教材對應之 <strong>所選核心素養與學習重點</strong>！</p>
             </div>
           </div>
         </div>
@@ -953,74 +918,1644 @@
   <script>
     // 108 課綱健康與體育領域各學習階段指標資料庫
     const CURRICULUM_DB = {
-      stage1: {
-        name: "第一學習階段（一、二年級）",
-        perf: [
-          { code: "1a-I-1", text: "認識基本的健康常識與身體各部位功能。", checked: true },
-          { code: "2a-I-1", text: "發覺影響健康的生活態度與情緒反應。", checked: true },
-          { code: "3a-I-1", text: "嘗試練習基本健康技能（如正確洗手、刷牙、護眼）。", checked: false },
-          { code: "3b-I-1", text: "舉例說明在生活中運用生活技能（表達感受、尋求協助）的方法。", checked: true },
-          { code: "3c-I-1", text: "表現基本動作與模仿的能力，體驗身體移動與平衡。", checked: false },
-          { code: "2c-I-2", text: "表現認真參與、遵守規則與尊重同伴的運動態度。", checked: false },
-          { code: "4a-I-2", text: "養成規律運動與健康生活的良好習慣。", checked: false }
-        ],
-        cont: [
-          { code: "Aa-I-1", text: "不同人生階段的成長、身體部位名稱與自我保護。", checked: true },
-          { code: "Ba-I-2", text: "眼耳鼻口牙的保健方法與日常生活安全。", checked: false },
-          { code: "Ea-I-2", text: "飲食與運動對健康的影響及良好飲食習慣。", checked: true },
-          { code: "Fa-I-2", text: "與家人及朋友和諧相處的方式與情緒表達。", checked: true },
-          { code: "Ga-I-1", text: "走、跑、跳與投擲遊戲。", checked: false },
-          { code: "Ha-I-1", text: "網／牆性、陣地攻守性與標的性球類遊戲。", checked: false },
-          { code: "Ia-I-1", text: "滾翻、支撐、平衡與創作性律動遊戲。", checked: false }
-        ]
+  "stage1": {
+    "name": "第一學習階段（一、二年級）",
+    "perf": [
+      {
+        "code": "1a-Ⅰ-1",
+        "text": "認識基本的健康常識。",
+        "page": 8,
+        "checked": false
       },
-      stage2: {
-        name: "第二學習階段（三、四年級）",
-        perf: [
-          { code: "1a-II-2", text: "了解促進健康生活的方法與疾病預防原則。", checked: true },
-          { code: "2a-II-2", text: "注意健康問題所帶來的威脅感與嚴重性，培養自我覺察。", checked: true },
-          { code: "3b-II-2", text: "能於引導下在生活情境中演練自我調適、作決定與拒絕技能。", checked: true },
-          { code: "1d-II-1", text: "認識動作技能概念與運動比賽的基本規則。", checked: false },
-          { code: "2c-II-2", text: "表現增進團隊合作、同理他人與友善互動的行為。", checked: true },
-          { code: "3c-II-1", text: "表現聯合性基本動作技能，提升身體協調與控制。", checked: false },
-          { code: "3d-II-2", text: "運用比賽中的基本進攻與防守戰術策略（TGfU初階）。", checked: false },
-          { code: "4b-II-2", text: "使用運動與健康相關科技設備或簡易紀錄工具。", checked: true }
-        ],
-        cont: [
-          { code: "Aa-II-2", text: "青春期身體與心理的變化、個人衛生保健與身體界線。", checked: false },
-          { code: "Ba-II-2", text: "灼燙傷、出血、扭傷等常見意外傷害處理與運動安全。", checked: false },
-          { code: "Da-II-2", text: "視力、口腔保健、正確用藥與全民健保醫療資源珍惜。", checked: true },
-          { code: "Ea-II-3", text: "85210健康飲食與生活型態調整策略。", checked: true },
-          { code: "Fa-II-3", text: "情緒覺察、壓力調適與正向人際溝通技巧（SEL）。", checked: true },
-          { code: "Bb-II-1", text: "菸、酒、檳榔及網路3C過度使用的危害與拒絕策略。", checked: true },
-          { code: "Ab-II-1", text: "體適能要素（心肺、肌力、柔軟度、身體組成）認識與體驗。", checked: false },
-          { code: "Hb-II-1", text: "陣地攻守性球類（籃/足/手球）傳接、運球與空間移動。", checked: false },
-          { code: "Hc-II-1", text: "守備／跑分性與標的性球類（樂樂棒球／躲避球）擊球與傳接戰術。", checked: false }
-        ]
+      {
+        "code": "1a-Ⅰ-2",
+        "text": "認識健康的生活習慣。",
+        "page": 8,
+        "checked": false
       },
-      stage3: {
-        name: "第三學習階段（五、六年級）",
-        perf: [
-          { code: "1b-III-2", text: "認識健康技能與生活技能對健康維護的重要性。", checked: true },
-          { code: "2b-III-2", text: "願意培養正向健康態度與自主健康管理責任感。", checked: true },
-          { code: "3b-III-3", text: "能於生活與同儕情境中熟練運用批判性思考、問題解決與拒絕技能。", checked: true },
-          { code: "1c-III-2", text: "應用運動比賽的各項規則與運動戰術原理。", checked: true },
-          { code: "2c-III-3", text: "表現公平競爭、運動家精神與建設性解決團隊衝突的能力。", checked: true },
-          { code: "3d-III-2", text: "演練比賽中的進攻、防守、空間創造與團隊支援策略（TGfU進階）。", checked: true },
-          { code: "4a-III-3", text: "分析自我體適能與健康數據，擬定並執行改善計畫。", checked: false }
-        ],
-        cont: [
-          { code: "Aa-III-2", text: "青春期性生理發展、性別平等互動與數位網路交友安全界線。", checked: false },
-          { code: "Bb-III-2", text: "成癮物質（菸、酒、檳榔、新興毒品）媒體識讀與堅定拒絕技能。", checked: false },
-          { code: "Ea-III-2", text: "食品標示判讀、營養均衡規劃與健康體位自主管理。", checked: true },
-          { code: "Fa-III-2", text: "自我價值肯定、挫折復原力與人際衝突溝通解決（SEL）。", checked: true },
-          { code: "Ab-III-2", text: "體適能常模自我檢測分析與個人運動處方設計。", checked: true },
-          { code: "Ha-III-1", text: "網／牆性球類（排球、羽球、桌球、匹克球）擊球技術與空檔戰術。", checked: true },
-          { code: "Hb-III-1", text: "陣地攻守性球類（籃球、足球）團隊攻守轉換、掩護與空間支援。", checked: true },
-          { code: "Hc-III-1", text: "棒壘球／樂樂棒球打擊落點控制與內外野守備補位決策。", checked: false }
-        ]
+      {
+        "code": "1b-Ⅰ-1",
+        "text": "舉例說明健康生活情境中適用的健康技能和生活技能。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅰ-1",
+        "text": "認識身體活動的基本動作。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅰ-2",
+        "text": "認識基本的運動常識。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1d-Ⅰ-1",
+        "text": "描述動作技能基本常識。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅰ-1",
+        "text": "發覺影響健康的生活態度與行為。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅰ-2",
+        "text": "感受健康問題對自己造成的威脅性。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅰ-1",
+        "text": "接受健康的生活規範。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅰ-2",
+        "text": "願意養成個人健康習慣。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅰ-1",
+        "text": "表現尊重的團體互動行為。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅰ-2",
+        "text": "表現認真參與的學習態度。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅰ-1",
+        "text": "專注觀賞他人的動作表現。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅰ-2",
+        "text": "接受並體驗多元性身體活動。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3a-Ⅰ-1",
+        "text": "嘗試練習簡易的健康相關技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3a-Ⅰ-2",
+        "text": "能於引導下，於生活中操作簡易的健康技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅰ-1",
+        "text": "能於引導下，表現簡易的自我調適技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅰ-2",
+        "text": "能於引導下，表現簡易的人際溝通互動技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅰ-3",
+        "text": "能於生活中嘗試運用生活技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅰ-1",
+        "text": "表現基本動作與模仿的能力。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅰ-2",
+        "text": "表現安全的身體活動行為。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3d-Ⅰ-1",
+        "text": "應用基本動作常識，處理練習或遊戲問題。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅰ-1",
+        "text": "能於引導下，使用適切的健康資訊、產品與服務。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅰ-2",
+        "text": "養成健康的生活習慣。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4b-Ⅰ-1",
+        "text": "發表個人對促進健康的立場。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅰ-1",
+        "text": "認識與身體活動相關資源。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅰ-2",
+        "text": "選擇適合個人的身體活動。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅰ-1",
+        "text": "願意從事規律身體活動。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅰ-2",
+        "text": "利用學校或社區資源從事身體活動。",
+        "page": 10,
+        "checked": false
       }
-    };
+    ],
+    "cont": [
+      {
+        "code": "Aa-Ⅰ-1",
+        "text": "不同人生階段的成長情形。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "Ab-Ⅰ-1",
+        "text": "體適能遊戲。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅰ-1",
+        "text": "遊戲場所與上下學情境的安全須知。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅰ-2",
+        "text": "眼耳鼻傷害事件急救處理方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅰ-1",
+        "text": "常見的藥物使用方法與影響。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅰ-2",
+        "text": "吸菸與飲酒的危害及拒絕二手菸的方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bc-Ⅰ-1",
+        "text": "各項暖身伸展動作。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bd-Ⅰ-1",
+        "text": "武術模仿遊戲。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bd-Ⅰ-2",
+        "text": "技擊模仿遊戲。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ca-Ⅰ-1",
+        "text": "生活中與健康相關的環境。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅰ-1",
+        "text": "運動安全常識、運動對身體健康的益處。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅰ-2",
+        "text": "班級體育活動。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅰ-3",
+        "text": "學校運動活動空間與場域。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Cc-Ⅰ-1",
+        "text": "水域休閒運動入門遊戲。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cd-Ⅰ-1",
+        "text": "戶外休閒運動入門遊戲。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ce-Ⅰ-1",
+        "text": "其他休閒運動入門遊戲。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅰ-1",
+        "text": "日常生活中的基本衛生習慣。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅰ-2",
+        "text": "身體的部位與衛生保健的重要性。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅰ-1",
+        "text": "日常生活中的性別角色。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅰ-2",
+        "text": "身體隱私與身體界線及其危害求助方法。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅰ-1",
+        "text": "生活中常見的食物與珍惜食物。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅰ-2",
+        "text": "基本的飲食習慣。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Eb-Ⅰ-1",
+        "text": "健康安全消費的原則。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅰ-1",
+        "text": "認識與喜歡自己的方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅰ-2",
+        "text": "與家人及朋友和諧相處的方式。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅰ-3",
+        "text": "情緒體驗與分辨的方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅰ-1",
+        "text": "個人對健康的自我覺察與行為表現。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅰ-2",
+        "text": "兒童常見疾病的預防與照顧方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Ga-Ⅰ-1",
+        "text": "走、跑、跳與投擲遊戲。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Gb-Ⅰ-1",
+        "text": "游泳池安全與衛生常識。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Gb-Ⅰ-2",
+        "text": "水中遊戲、水中閉氣與韻律呼吸與藉物漂浮。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Ha-Ⅰ-1",
+        "text": "網/牆性球類運動相關的簡易拋、接、控、擊、持拍及拍、擲、傳、滾之手眼動作協調、力量及準確性控球動作。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hb-Ⅰ-1",
+        "text": "陣地攻守性球類運動相關的簡易拍、拋、接、擲、傳、滾及踢、控、停之手眼、手腳動作協調、力量及準確性控球動作。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hc-Ⅰ-1",
+        "text": "標的性球類運動相關的簡易拋、擲、滾之手眼動作協調、力量及準確性控球動作。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hd-Ⅰ-1",
+        "text": "守備/跑分性球類運動相關的簡易拋、接、擲、傳之手眼動作協調、力量及準確性控球動作。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ia-Ⅰ-1",
+        "text": "滾翻、支撐、平衡、懸垂遊戲。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ib-Ⅰ-1",
+        "text": "唱、跳與模仿性律動遊戲。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ic-Ⅰ-1",
+        "text": "民俗運動基本動作與遊戲。",
+        "page": 14,
+        "checked": false
+      }
+    ]
+  },
+  "stage2": {
+    "name": "第二學習階段（三、四年級）",
+    "perf": [
+      {
+        "code": "1a-Ⅱ-1",
+        "text": "認識身心健康基本概念與意義。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1a-Ⅱ-2",
+        "text": "了解促進健康生活的方法。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1b-Ⅱ-1",
+        "text": "認識健康技能和生活技能對健康維護的重要性。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1b-Ⅱ-2",
+        "text": "辨別生活情境中適用的健康技能和生活技能。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅱ-1",
+        "text": "認識身體活動的動作技能。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅱ-2",
+        "text": "認識身體活動的傷害和防護概念。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1d-Ⅱ-1",
+        "text": "認識動作技能概念與動作練習的策略。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1d-Ⅱ-2",
+        "text": "描述自己或他人動作技能的正確性。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅱ-1",
+        "text": "覺察健康受到個人、家庭、學校等因素之影響。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅱ-2",
+        "text": "注意健康問題所帶來的威脅感與嚴重性。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅱ-1",
+        "text": "遵守健康的生活規範。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅱ-2",
+        "text": "願意改善個人的健康習慣。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅱ-1",
+        "text": "遵守上課規範和運動比賽規則。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅱ-2",
+        "text": "表現增進團隊合作、友善的互動行為。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅱ-3",
+        "text": "表現主動參與、樂於嘗試的學習態度。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅱ-1",
+        "text": "描述參與身體活動的感覺。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅱ-2",
+        "text": "表現觀賞者的角色和責任。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅱ-3",
+        "text": "參與並欣賞多元性身體活動。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3a-Ⅱ-1",
+        "text": "演練基本的健康技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3a-Ⅱ-2",
+        "text": "能於生活中獨立操作基本的健康技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅱ-1",
+        "text": "透過模仿學習，表現基本的自我調適技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅱ-2",
+        "text": "能於引導下，表現基本的人際溝通互動技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅱ-3",
+        "text": "運用基本的生活技能，因應不同的生活情境。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅱ-1",
+        "text": "表現聯合性動作技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅱ-2",
+        "text": "透過身體活動，探索運動潛能與表現正確的身體活動。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3d-Ⅱ-1",
+        "text": "運用動作技能的練習策略。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "3d-Ⅱ-2",
+        "text": "運用遊戲的合作和競爭策略。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅱ-1",
+        "text": "能於日常生活中，運用健康資訊、產品與服務。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅱ-2",
+        "text": "展現促進健康的行為。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4b-Ⅱ-1",
+        "text": "清楚說明個人對促進健康的立場。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4b-Ⅱ-2",
+        "text": "使用事實證據來支持自己促進健康的立場。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅱ-1",
+        "text": "了解影響運動參與的因素，選擇提高體適能的運動計畫與資源。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅱ-2",
+        "text": "了解個人體適能與基本運動能力表現。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅱ-1",
+        "text": "培養規律運動的習慣並分享身體活動的益處。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅱ-2",
+        "text": "參與提高體適能與基本運動能力的身體活動。",
+        "page": 10,
+        "checked": false
+      }
+    ],
+    "cont": [
+      {
+        "code": "Aa-Ⅱ-1",
+        "text": "生長發育的意義與成長個別差異。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "Aa-Ⅱ-2",
+        "text": "人生各階段發展的順序與感受。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "Ab-Ⅱ-1",
+        "text": "體適能活動。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ab-Ⅱ-2",
+        "text": "體適能自我檢測方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅱ-1",
+        "text": "居家、交通及戶外環境的潛在危機與安全須知。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅱ-2",
+        "text": "灼燙傷、出血、扭傷的急救處理方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅱ-3",
+        "text": "防火、防震、防颱措施及逃生避難基本技巧。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅱ-1",
+        "text": "藥物對健康的影響、安全用藥原則與社區藥局。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅱ-2",
+        "text": "吸菸、喝酒、嚼檳榔對健康的危害與拒絕技巧。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅱ-3",
+        "text": "無菸家庭與校園的健康信念。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bc-Ⅱ-1",
+        "text": "暖身、伸展動作原則。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bc-Ⅱ-2",
+        "text": "運動與身體活動的保健知識。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bd-Ⅱ-1",
+        "text": "武術基本動作。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bd-Ⅱ-2",
+        "text": "技擊基本動作。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ca-Ⅱ-1",
+        "text": "健康社區的意識、責任與維護行動。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ca-Ⅱ-2",
+        "text": "環境汙染對健康的影響。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅱ-1",
+        "text": "運動安全規則、運動增進生長知識。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅱ-2",
+        "text": "學校運動賽會。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅱ-3",
+        "text": "奧林匹克運動會的起源與訴求。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅱ-4",
+        "text": "社區運動活動空間與場域。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cc-Ⅱ-1",
+        "text": "水域休閒運動基本技能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cd-Ⅱ-1",
+        "text": "戶外休閒運動基本技能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ce-Ⅱ-1",
+        "text": "其他休閒運動基本技能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅱ-1",
+        "text": "良好的衛生習慣。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅱ-2",
+        "text": "身體各部位的功能與衛生保健的方法。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅱ-1",
+        "text": "男女生殖器官的基本功能與差異。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅱ-2",
+        "text": "性別角色刻板現象並與不同性別者之良好互動。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅱ-3",
+        "text": "身體自主權及其危害之防範與求助策略。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅱ-1",
+        "text": "食物與營養的種類和需求。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅱ-2",
+        "text": "飲食搭配、攝取量與家庭飲食型態。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅱ-3",
+        "text": "飲食選擇的影響因素。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Eb-Ⅱ-1",
+        "text": "健康安全消費的訊息與方法。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅱ-1",
+        "text": "自我價值提升的原則。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅱ-2",
+        "text": "與家人及朋友良好溝通與相處的技巧。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅱ-3",
+        "text": "情緒的類型與調適方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅱ-1",
+        "text": "自我健康狀態檢視方法與健康行為的維持原則。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅱ-2",
+        "text": "常見傳染病預防原則與自我照護方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅱ-3",
+        "text": "正確就醫習慣。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Ga-Ⅱ-1",
+        "text": "跑、跳與行進間投擲的遊戲。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Gb-Ⅱ-1",
+        "text": "戶外戲水安全知識、離地蹬牆漂浮。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Gb-Ⅱ-2",
+        "text": "打水前進、簡易性游泳遊戲。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Ha-Ⅱ-1",
+        "text": "網/牆性球類運動相關的拋接球、持拍控球、擊球及拍擊球、傳接球之時間、空間及人與人、人與球關係攻防概念。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hb-Ⅱ-1",
+        "text": "陣地攻守性球類運動相關的拍球、拋接球、傳接球、擲球及踢球、帶球、追逐球、停球之時間、空間及人與人、人與球關係攻防概念。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hc-Ⅱ-1",
+        "text": "標的性球類運動相關的拋球、擲球、滾球之時間、空間及人與人、人與球關係攻防概念。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Hd-Ⅱ-1",
+        "text": "守備/跑分性球類運動相關的拋接球、傳接球、擊球、踢球、跑動踩壘之時間、空間及人與人、人與球關係攻防概念。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ia-Ⅱ-1",
+        "text": "滾翻、支撐、平衡與擺盪動作。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ib-Ⅱ-1",
+        "text": "音樂律動與模仿性創作舞蹈。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ib-Ⅱ-2",
+        "text": "土風舞遊戲。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ic-Ⅱ-1",
+        "text": "民俗運動基本動作與串接。",
+        "page": 14,
+        "checked": false
+      }
+    ]
+  },
+  "stage3": {
+    "name": "第三學習階段（五、六年級）",
+    "perf": [
+      {
+        "code": "1a-Ⅲ-1",
+        "text": "認識生理、心理與社會各層面健康的概念。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1a-Ⅲ-2",
+        "text": "描述生活行為對個人與群體健康的影響。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1a-Ⅲ-3",
+        "text": "理解促進健康生活的方法、資源與規範。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1b-Ⅲ-1",
+        "text": "理解健康技能和生活技能對健康維護的重要性。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1b-Ⅲ-2",
+        "text": "認識健康技能和生活技能的基本步驟。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1b-Ⅲ-3",
+        "text": "對照生活情境的健康需求，尋求適用的健康技能和生活技能。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1b-Ⅲ-4",
+        "text": "了解健康自主管理的原則與方法。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅲ-1",
+        "text": "了解運動技能要素和基本運動規範。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅲ-2",
+        "text": "應用身體活動的防護知識，維護運動安全。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1c-Ⅲ-3",
+        "text": "了解身體活動對身體發展的關係。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1d-Ⅲ-1",
+        "text": "了解運動技能的要素和要領。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1d-Ⅲ-2",
+        "text": "比較自己或他人運動技能的正確性。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "1d-Ⅲ-3",
+        "text": "了解比賽的進攻和防守策略。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅲ-1",
+        "text": "關注健康議題受到個人、家庭、學校與社區等因素的交互作用之影響。",
+        "page": 8,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅲ-2",
+        "text": "覺知健康問題所造成的威脅感與嚴重性。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2a-Ⅲ-3",
+        "text": "體察健康行動的自覺利益與障礙。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅲ-1",
+        "text": "認同健康的生活規範、態度與價值觀。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅲ-2",
+        "text": "願意培養健康促進的生活型態。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2b-Ⅲ-3",
+        "text": "擁有執行健康生活行動的信心與效能感。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅲ-1",
+        "text": "表現基本運動精神和道德規範。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅲ-2",
+        "text": "表現同理心、正向溝通的團隊精神。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2c-Ⅲ-3",
+        "text": "表現積極參與、接受挑戰的學習態度。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅲ-1",
+        "text": "分享運動欣賞與創作的美感體驗。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅲ-2",
+        "text": "分辨運動賽事中選手和觀眾的角色與責任。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "2d-Ⅲ-3",
+        "text": "分析並解釋多元性身體活動的特色。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3a-Ⅲ-1",
+        "text": "流暢地操作基礎健康技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3a-Ⅲ-2",
+        "text": "能於不同的生活情境中，主動表現基礎健康技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅲ-1",
+        "text": "獨立演練大部份的自我調適技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅲ-2",
+        "text": "獨立演練大部分的人際溝通互動技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅲ-3",
+        "text": "能於引導下，表現基本的決策與批判技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3b-Ⅲ-4",
+        "text": "能於不同的生活情境中，運用生活技能。",
+        "page": 9,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅲ-1",
+        "text": "表現穩定的身體控制和協調能力。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅲ-2",
+        "text": "在身體活動中表現各項運動技能，發展個人運動潛能。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "3c-Ⅲ-3",
+        "text": "表現動作創作和展演的能力。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "3d-Ⅲ-1",
+        "text": "應用學習策略，提高運動技能學習效能。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "3d-Ⅲ-2",
+        "text": "演練比賽中的進攻和防守策略。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "3d-Ⅲ-3",
+        "text": "透過體驗或實踐，解決練習或比賽的問題。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅲ-1",
+        "text": "運用多元的健康資訊、產品與服務。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅲ-2",
+        "text": "自我反省與修正促進健康的行動。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4a-Ⅲ-3",
+        "text": "主動地表現促進健康的行動。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4b-Ⅲ-1",
+        "text": "公開表達個人對促進健康的觀點與立場。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4b-Ⅲ-2",
+        "text": "使用適切的事證來支持自己健康促進的立場。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4b-Ⅲ-3",
+        "text": "公開提倡促進健康的信念或行為。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅲ-1",
+        "text": "選擇及應用與運動相關的科技、資訊、媒體、產品與服務。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅲ-2",
+        "text": "比較與檢視個人的體適能與運動技能表現。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4c-Ⅲ-3",
+        "text": "擬定簡易的體適能與運動技能的運動計畫。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅲ-1",
+        "text": "養成規律運動習慣，維持動態生活。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅲ-2",
+        "text": "執行運動計畫，解決運動參與的阻礙。",
+        "page": 10,
+        "checked": false
+      },
+      {
+        "code": "4d-Ⅲ-3",
+        "text": "宣導身體活動促進身心健康的效益。",
+        "page": 10,
+        "checked": false
+      }
+    ],
+    "cont": [
+      {
+        "code": "Aa-Ⅲ-1",
+        "text": "生長發育的影響因素與促進方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Aa-Ⅲ-2",
+        "text": "人生各階段的成長、轉變與自我悅納。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Aa-Ⅲ-3",
+        "text": "面對老化現象與死亡的健康態度。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ab-Ⅲ-1",
+        "text": "身體組成與體適能之基本概念。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ab-Ⅲ-2",
+        "text": "體適能自我評估原則。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅲ-1",
+        "text": "冒險行為的原因與防制策略。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅲ-2",
+        "text": "校園及休閒活動事故傷害預防與安全須知。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅲ-3",
+        "text": "藥物中毒、一氧化碳中毒、異物梗塞急救處理方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ba-Ⅲ-4",
+        "text": "緊急救護系統資訊與突發事故的處理方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅲ-1",
+        "text": "藥物種類、正確用藥核心能力與用藥諮詢。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅲ-2",
+        "text": "成癮性物質的特性及其危害。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅲ-3",
+        "text": "媒體訊息對青少年吸菸、喝酒行為的影響。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bb-Ⅲ-4",
+        "text": "拒絕成癮物質的健康行動策略。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bc-Ⅲ-1",
+        "text": "基礎運動傷害預防與處理方法。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bc-Ⅲ-2",
+        "text": "運動與疾病保健、終身運動相關知識。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bd-Ⅲ-1",
+        "text": "武術組合動作與套路。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Bd-Ⅲ-2",
+        "text": "技擊組合動作與應用。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ca-Ⅲ-1",
+        "text": "健康環境的交互影響因素。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ca-Ⅲ-2",
+        "text": "環境汙染的來源與形式。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Ca-Ⅲ-3",
+        "text": "環保行動的參與及綠色消費概念。",
+        "page": 11,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅲ-1",
+        "text": "運動安全教育、運動精神與運動營養知識。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅲ-2",
+        "text": "區域性運動賽會與現代奧林匹克運動會。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cb-Ⅲ-3",
+        "text": "各項運動裝備、設施、場域。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cc-Ⅲ-1",
+        "text": "水域休閒運動進階技能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Cd-Ⅲ-1",
+        "text": "戶外休閒運動進階技能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ce-Ⅲ-1",
+        "text": "其他休閒運動進階技能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅲ-1",
+        "text": "衛生保健習慣的改進方法。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅲ-2",
+        "text": "身體主要器官的構造與功能。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Da-Ⅲ-3",
+        "text": "視力與口腔衛生促進的保健行動。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅲ-1",
+        "text": "青春期的探討與常見保健問題之處理方法。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅲ-2",
+        "text": "不同性傾向的基本概念與性別刻板印象的影響與因應方式。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅲ-3",
+        "text": "性騷擾與性侵害的自我防護。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅲ-4",
+        "text": "愛滋病傳染途徑與愛滋關懷。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Db-Ⅲ-5",
+        "text": "友誼關係的維繫與情感的合宜表達方式。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅲ-1",
+        "text": "個人的營養與熱量之需求。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅲ-2",
+        "text": "兒童及青少年飲食問題與健康影響。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅲ-3",
+        "text": "每日飲食指南與多元飲食文化。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Ea-Ⅲ-4",
+        "text": "食品生產、加工、保存與衛生安全。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Eb-Ⅲ-1",
+        "text": "健康消費資訊與媒體的影響。",
+        "page": 12,
+        "checked": false
+      },
+      {
+        "code": "Eb-Ⅲ-2",
+        "text": "健康消費相關服務與產品的選擇方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅲ-1",
+        "text": "自我悅納與潛能探索的方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅲ-2",
+        "text": "家庭成員的角色與責任。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅲ-3",
+        "text": "維持良好人際關係的溝通技巧與策略。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fa-Ⅲ-4",
+        "text": "正向態度與情緒、壓力的管理技巧。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅲ-1",
+        "text": "健康各面向平衡安適的促進方法與日常健康行為。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅲ-2",
+        "text": "臺灣地區常見傳染病預防與自我照顧方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅲ-3",
+        "text": "預防性健康自我照護的意義與重要性。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Fb-Ⅲ-4",
+        "text": "珍惜健保與醫療的方法。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Ga-Ⅲ-1",
+        "text": "跑、跳與投擲的基本動作。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Gb-Ⅲ-1",
+        "text": "水中自救方法、仰漂15秒。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Gb-Ⅲ-2",
+        "text": "手腳聯合動作、藉物游泳前進、游泳前進15公尺（需換氣三次以上）與簡易性游泳比賽。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Ha-Ⅲ-1",
+        "text": "網/牆性球類運動基本動作及基礎戰術。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hb-Ⅲ-1",
+        "text": "陣地攻守性球類運動基本動作及基礎戰術。",
+        "page": 13,
+        "checked": false
+      },
+      {
+        "code": "Hc-Ⅲ-1",
+        "text": "標的性球類運動基本動作及基礎戰術。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Hd-Ⅲ-1",
+        "text": "守備/跑分性球類運動基本動作及基礎戰術。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ia-Ⅲ-1",
+        "text": "滾翻、支撐、跳躍、旋轉與騰躍動作。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ib-Ⅲ-1",
+        "text": "模仿性與主題式創作舞。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ib-Ⅲ-2",
+        "text": "各國土風舞。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ic-Ⅲ-1",
+        "text": "民俗運動組合動作與遊戲。",
+        "page": 14,
+        "checked": false
+      },
+      {
+        "code": "Ic-Ⅲ-2",
+        "text": "民俗運動簡易性表演。",
+        "page": 14,
+        "checked": false
+      }
+    ]
+  }
+};
+    const CORE_COMPETENCIES = [
+  {
+    "code": "健體-E-A1",
+    "text": "具備良好身體活動與健康生活的習慣，以促進身心健全發展，並認識個人特質，發展運動與保健的潛能。",
+    "page": 1,
+    "title": "身心素質與自我精進"
+  },
+  {
+    "code": "健體-E-A2",
+    "text": "具備探索身體活動與健康生活問題的思考能力，並透過體驗與實踐，處理日常生活中運動與健康的問題。",
+    "page": 2,
+    "title": "系統思考與解決問題"
+  },
+  {
+    "code": "健體-E-A3",
+    "text": "具備擬定基本的運動與保健計畫及實作能力，並以創新思考方式，因應日常生活情境。",
+    "page": 2,
+    "title": "規劃執行與創新應變"
+  },
+  {
+    "code": "健體-E-B1",
+    "text": "具備運用體育與健康之相關符號知能，能以同理心應用在生活中的運動、保健與人際溝通上。",
+    "page": 2,
+    "title": "符號運用與溝通表達"
+  },
+  {
+    "code": "健體-E-B2",
+    "text": "具備應用體育與健康相關科技及資訊的基本素養，並理解各類媒體刊載、報導有關體育與健康內容的意義與影響。",
+    "page": 2,
+    "title": "科技資訊與媒體素養"
+  },
+  {
+    "code": "健體-E-B3",
+    "text": "具備運動與健康有關的感知和欣賞的基本素養，促進多元感官的發展，在生活環境中培養運動與健康有關的美感體驗。",
+    "page": 2,
+    "title": "藝術涵養與美感素養"
+  },
+  {
+    "code": "健體-E-C1",
+    "text": "具備生活中有關運動與健康的道德知識與是非判斷能力，理解並遵守相關的道德規範，培養公民意識，關懷社會。",
+    "page": 3,
+    "title": "道德實踐與公民意識"
+  },
+  {
+    "code": "健體-E-C2",
+    "text": "具備同理他人感受，在體育活動和健康生活中樂於與人互動、公平競爭，並與團隊成員合作，促進身心健康。",
+    "page": 3,
+    "title": "人際關係與團隊合作"
+  },
+  {
+    "code": "健體-E-C3",
+    "text": "具備理解與關心本土、國際體育與健康議題的素養，並認識及包容文化的多元性。",
+    "page": 3,
+    "title": "多元文化與國際理解"
+  }
+];
 
     // 路由切換邏輯 (支援 #home, #lesson-prep, #interactive, #summary)
     function syncRouteFromHash() {
@@ -1057,14 +2592,14 @@
       perfContainer.innerHTML = stageData.perf.map(item => `
         <label class="flex items-start gap-2 cursor-pointer p-1.5 rounded-lg hover:bg-white transition">
           <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileLessonPrepPrompt()" class="mt-0.5 rounded text-emerald-600 lp-perf-cb" />
-          <span><strong class="text-emerald-700">${item.code}</strong> ${item.text}</span>
+          <span><strong class="text-emerald-700">${item.code}</strong> ${item.text}<small class="block text-slate-500">領綱精簡本 PDF 第 ${item.page} 頁</small></span>
         </label>
       `).join('');
 
       contContainer.innerHTML = stageData.cont.map(item => `
         <label class="flex items-start gap-2 cursor-pointer p-1.5 rounded-lg hover:bg-white transition">
           <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileLessonPrepPrompt()" class="mt-0.5 rounded text-emerald-600 lp-cont-cb" />
-          <span><strong class="text-teal-700">${item.code}</strong> ${item.text}</span>
+          <span><strong class="text-teal-700">${item.code}</strong> ${item.text}<small class="block text-slate-500">領綱精簡本 PDF 第 ${item.page} 頁</small></span>
         </label>
       `).join('');
 
@@ -1100,11 +2635,11 @@ ${pedagogies.length ? pedagogies.map(p => `  - ${p}`).join('\n') : '  - 108 課�
 
 ## 二、 108 課綱健體領域對齊指標
 - **領域核心素養**：
-${coreComps.length ? coreComps.map(c => `  - ${c}`).join('\n') : '  - 健體-E-A1、健體-E-B2、健體-E-C2'}
+${coreComps.length ? coreComps.map(c => `  - ${c}`).join('\n') : '  - 尚未勾選，請教師從九項核心素養選擇適用項目'}
 - **學習表現**：
-${perfs.length ? perfs.map(p => `  - ${p}`).join('\n') : '  - 請自動對齊最適合本年段之學習表現條目'}
+${perfs.length ? perfs.map(p => `  - ${p}`).join('\n') : '  - 尚未勾選；請教師依學習目標從參考領綱確認，不得自創課綱代碼'}
 - **學習內容**：
-${conts.length ? conts.map(c => `  - ${c}`).join('\n') : '  - 請自動對齊最適合本年段之學習內容條目'}
+${conts.length ? conts.map(c => `  - ${c}`).join('\n') : '  - 尚未勾選；請教師依活動內容從參考領綱確認，不得自創課綱代碼'}
 
 ## 三、 單元核心內容與學生情境脈絡
 """
@@ -1116,7 +2651,8 @@ ${tasks.length ? tasks.map((t, i) => `${i + 1}.${t}`).join('\n') : '1. 請產出
 
 ## 五、 輸出品質規範
 1. 請全面使用**臺灣繁體中文**與臺灣教育部 108 課綱標準術語（如：學習表現、學習內容、四大生活技能、TGfU 理解式球類教學、體適能四大要素）。
-2. 所有提問與活動設計請強調「真實生活情境遷移」，避免死背硬記，並以清楚的 Markdown 表格與階層標題呈現。`;
+2. 課綱代碼與內涵須忠於提供的領綱原文；SEL、TPSR、TGfU 與新興運動屬教學設計應用，請分開說明，不得改寫成官方課綱條目。
+3. 所有提問與活動設計請強調「真實生活情境遷移」，避免死背硬記，並以清楚的 Markdown 表格與階層標題呈現。`;
 
       document.getElementById('lp-prompt-output').textContent = prompt;
     }
@@ -1129,6 +2665,94 @@ ${tasks.length ? tasks.map((t, i) => `${i + 1}.${t}`).join('\n') : '1. 請產出
 
     // 渲染「互動教材提示詞產生器」的課綱指標清單（依年級 1~6 連動）
     let currentIwStage = 'stage2';
+    const IW_TOPICS = [
+      ['飲食營養與健康生活小達人', '透過餐點選擇與生活作息情境，練習辨識飲食資訊、比較選擇並規劃可實行的健康生活行動。', ['Ea'], ['mode-sel', 'mode-drag']],
+      ['成長密碼與身體界線守護者', '認識成長的個別差異，透過情境判斷練習尊重身體界線、表達意願與尋求協助。', ['Aa', 'Db'], ['mode-sel', 'mode-drag']],
+      ['情緒覺察與友善溝通練習場', '從同儕互動情境辨識情緒與需要，練習自我調適、同理傾聽與友善溝通，並反思選擇的影響。', ['Fa'], ['mode-sel', 'mode-mindful']],
+      ['數位康健與拒絕技能任務', '從同儕邀約與數位使用情境，練習自我覺察、批判思考、作決定及溫和堅定的拒絕話術，提出健康替代行動。', ['Bb', 'Da'], ['mode-sel', 'mode-drag']],
+      ['安全生活與運動防護任務', '透過日常與運動場景辨識危險、判斷安全行動順序，練習停止活動、尋求成人協助及選擇適當資源。', ['Ba', 'Bc', 'Fb'], ['mode-drag', 'mode-rubric']],
+      ['TGfU 球類戰術意識：創造空間與傳接支援大作戰', '運用 TGfU 理解式球類教學，在電子戰術板拖曳球員與球，觀察防守位置，練習無球跑位創造空間、三角傳接支援及攻守轉換；每次決策都說明理由，並透過修改規則的小比賽檢核團隊合作。', ['Hb'], ['mode-tgfu', 'mode-rubric']],
+      ['網牆球類空間與擊球決策工作坊', '觀察對手位置與場地空檔，練習擊球落點、回位及搭檔支援，透過戰術板與情境題比較決策理由。', ['Ha'], ['mode-tgfu', 'mode-rubric']],
+      ['守備跑分與躲避球團隊支援任務', '透過球場情境觀察打擊落點、傳接路線與守備補位，練習團隊溝通、跑分或攻守判斷，並說明安全與規則依據。', ['Hd', 'Hb'], ['mode-tgfu', 'mode-rubric']],
+      ['體適能探索與個人運動計畫', '透過適齡的走跑跳與平衡任務觀察身體表現，記錄個人練習歷程，設定可達成的運動目標並自我檢核。', ['Ab', 'Ga', 'Ia'], ['mode-rubric', 'mode-drag']],
+      ['運動家精神與靜心收操練習場', '透過規則判讀、團隊衝突與公平競爭情境練習溝通決策，再以呼吸與身體覺察完成靜心收操。', ['Cb', 'Fa'], ['mode-rubric', 'mode-mindful']],
+      ['SEL 個人與社會責任：尊重、努力與關懷行動', '結合 SEL 社會情緒學習與個人及社會責任模式（TPSR），在身體活動中練習尊重他人權利與感受、參與及努力、自我導向、協助與關懷他人，並將負責任行為遷移到課堂外。安排課前關係時間、責任目標、活動實踐、小組討論與個人反思，以具體行為紀錄及自評互評呈現學習歷程。', ['Cb', 'Fa'], ['mode-responsibility']],
+      ['標的性與新興運動：瞄準、控力與策略挑戰', '以樂樂高爾夫、地板滾球或其他適齡新興運動為例，練習瞄準、控力、落點判斷及安全操作；依運動特性調整器材、距離與規則，提供不同能力學生參與選項，透過嘗試、紀錄與反思修正策略。新興運動應按實際活動特性選擇課綱，並非獨立的領綱代碼。', ['Hc', 'Ce'], ['mode-target']],
+      ['自訂健體主題', '請補充本單元的學習目標、教學重點、活動情境及可觀察的學習證據。', [], []]
+    ];
+
+    function renderCoreCompetencies() {
+      ['iw-comp-group', 'lp-core-comp'].forEach(id => {
+        const interactive = id === 'iw-comp-group';
+        document.getElementById(id).innerHTML = CORE_COMPETENCIES.map(item => `
+          <label class="cursor-pointer"><input type="checkbox" value="${item.code} ${item.text}" ${['健體-E-A1','健體-E-B2','健體-E-C2'].includes(item.code) ? 'checked' : ''} onchange="${interactive ? 'compileInteractivePrompt' : 'compileLessonPrepPrompt'}()" class="sr-only card-check" />
+          <div class="p-3 rounded-xl border border-slate-200 text-xs"><strong class="block text-indigo-800">${item.code} ${item.title}</strong><span>${item.text}</span><small class="block text-slate-500 mt-1">領綱精簡本 PDF 第 ${item.page} 頁</small></div></label>
+        `).join('');
+      });
+    }
+
+    function getIwTopic(index) {
+      if (index !== 12) return IW_TOPICS[index];
+      const name = document.getElementById('iw-custom-topic').value.trim();
+      return [name || '自訂健體主題（請輸入）', name ? `本單元主題：${name}。請補充學習目標、教學重點、活動情境與可觀察的學習證據。` : IW_TOPICS[12][1], [], []];
+    }
+
+    function syncIwCustomTopic() {
+      if (iwActiveTopic === 12) syncIwTopic(false);
+    }
+
+    const iwTopicDrafts = new Map();
+    let iwActiveTopic = null;
+    let iwAutoText = {};
+
+    function syncIwTopic(refreshCurriculum = true) {
+      const domains = Array.from(document.querySelectorAll('input[name="iw-domain"]'));
+      const topicIndex = domains.findIndex(input => input.checked);
+      const topic = getIwTopic(topicIndex);
+      document.getElementById('iw-custom-topic-box').hidden = topicIndex !== 12;
+      const gradeInput = document.querySelector('input[name="iw-grade"]:checked');
+      const grade = gradeInput ? gradeInput.value.split('（')[0] : '國小';
+      const topicChanged = iwActiveTopic !== topicIndex;
+      const fields = ['iw-title', 'iw-desc'];
+      if (topicChanged && iwActiveTopic !== null) {
+        iwTopicDrafts.set(iwActiveTopic, Object.fromEntries(fields.map(id => [id, {
+          value: document.getElementById(id).value,
+          custom: document.getElementById(id).value !== iwAutoText[id]
+        }])));
+      }
+      const draft = topicChanged ? iwTopicDrafts.get(topicIndex) : null;
+      const defaults = { 'iw-title': `${grade}｜${topic[0]}`, 'iw-desc': topic[1] };
+      fields.forEach(id => {
+        const input = document.getElementById(id);
+        const custom = draft ? draft[id].custom : (!topicChanged && input.value !== iwAutoText[id]);
+        if (topicChanged) input.value = custom ? draft[id].value : defaults[id];
+        else if (!custom) input.value = defaults[id];
+        iwAutoText[id] = defaults[id];
+      });
+      iwActiveTopic = topicIndex;
+      if (topicChanged) {
+        document.querySelectorAll('#iw-modes-group input').forEach(input => {
+          input.checked = topic[3].includes(input.id);
+        });
+      }
+      if (topicChanged || refreshCurriculum === true) renderIwCurriculumCheckboxes();
+      if (topicChanged) {
+        applyIwCoreSuggestions(topicIndex);
+      }
+      compileInteractivePrompt();
+    }
+
+    function resetIwTopicText() {
+      const topic = getIwTopic(iwActiveTopic);
+      const grade = document.querySelector('input[name="iw-grade"]:checked').value.split('（')[0];
+      iwAutoText = { 'iw-title': `${grade}｜${topic[0]}`, 'iw-desc': topic[1] };
+      Object.entries(iwAutoText).forEach(([id, value]) => document.getElementById(id).value = value);
+      compileInteractivePrompt();
+    }
+    function applyIwCoreSuggestions(topicIndex) {
+      const suggested = topicIndex === 10 ? ['A1','A3','C1','C2'] : topicIndex === 11 ? ['A1','A2','C2','C3'] : topicIndex === 12 ? [] : ['A1','B2','C2'];
+      document.querySelectorAll('#iw-comp-group input').forEach(input => { input.checked = suggested.some(code => input.value.startsWith('健體-E-' + code + ' ')); });
+    }
     function handleIwGradeChange(gradeNum) {
       if (gradeNum <= 2) {
         currentIwStage = 'stage1';
@@ -1140,26 +2764,29 @@ ${tasks.length ? tasks.map((t, i) => `${i + 1}.${t}`).join('\n') : '1. 請產出
         currentIwStage = 'stage3';
         document.getElementById('iw-bopomofo').checked = false;
       }
-      renderIwCurriculumCheckboxes();
-      compileInteractivePrompt();
+      syncIwTopic();
     }
 
     function renderIwCurriculumCheckboxes() {
       const stageData = CURRICULUM_DB[currentIwStage];
+      const topicIndex = Array.from(document.querySelectorAll('input[name="iw-domain"]')).findIndex(input => input.checked);
+      const isSport = topicIndex >= 5 && topicIndex !== 12;
+      const contentPrefixes = IW_TOPICS[topicIndex][2];
+      const selectedContent = stageData.cont.filter(item => contentPrefixes.some(prefix => item.code.startsWith(prefix + '-')));
       const perfList = document.getElementById('iw-perf-list');
       const contList = document.getElementById('iw-cont-list');
 
       perfList.innerHTML = stageData.perf.map(item => `
         <label class="flex items-start gap-1.5 cursor-pointer p-1 rounded hover:bg-indigo-50/60">
-          <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-indigo-600 iw-perf-cb" />
-          <span><strong class="text-indigo-700">${item.code}</strong> ${item.text}</span>
+          <input type="checkbox" value="${item.code} ${item.text}" ${(topicIndex === 12 ? false : topicIndex === 10 ? /^(2c|3b|4d)-/.test(item.code) : isSport ? (/^(1c|1d|2c|3c|3d)-/.test(item.code) || (topicIndex === 8 && /^(4c|4d)-/.test(item.code))) : /^(1a|1b|2a|2b|3a|3b)-/.test(item.code)) ? 'checked' : ''} onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-indigo-600 iw-perf-cb" />
+          <span><strong class="text-indigo-700">${item.code}</strong> ${item.text}<small class="block text-slate-500">領綱精簡本 PDF 第 ${item.page} 頁</small></span>
         </label>
       `).join('');
 
       contList.innerHTML = stageData.cont.map(item => `
         <label class="flex items-start gap-1.5 cursor-pointer p-1 rounded hover:bg-indigo-50/60">
-          <input type="checkbox" value="${item.code} ${item.text}" ${item.checked ? 'checked' : ''} onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-indigo-600 iw-cont-cb" />
-          <span><strong class="text-indigo-700">${item.code}</strong> ${item.text}</span>
+          <input type="checkbox" value="${item.code} ${item.text}" ${selectedContent.includes(item) ? 'checked' : ''} onchange="compileInteractivePrompt()" class="mt-0.5 rounded text-indigo-600 iw-cont-cb" />
+          <span><strong class="text-indigo-700">${item.code}</strong> ${item.text}<small class="block text-slate-500">領綱精簡本 PDF 第 ${item.page} 頁</small></span>
         </label>
       `).join('');
     }
@@ -1221,6 +2848,11 @@ ${tasks.length ? tasks.map((t, i) => `${i + 1}.${t}`).join('\n') : '1. 請產出
         document.getElementById('mode-mindful').checked = true;
       }
 
+      iwActiveTopic = Array.from(document.querySelectorAll('input[name="iw-domain"]')).findIndex(input => input.checked);
+      document.getElementById('iw-custom-topic-box').hidden = true;
+      applyIwCoreSuggestions(iwActiveTopic);
+      iwAutoText = Object.fromEntries(['iw-title', 'iw-desc'].map(id => [id, document.getElementById(id).value]));
+      renderIwCurriculumCheckboxes();
       compileInteractivePrompt();
     }
 
@@ -1228,8 +2860,14 @@ ${tasks.length ? tasks.map((t, i) => `${i + 1}.${t}`).join('\n') : '1. 請產出
     function compileInteractivePrompt() {
       const grade = document.querySelector('input[name="iw-grade"]:checked')?.value || '';
       const useBopomofo = document.getElementById('iw-bopomofo').checked;
-      const domain = document.querySelector('input[name="iw-domain"]:checked')?.value || '';
-      const arch = document.querySelector('input[name="iw-arch"]:checked')?.value || '';
+      const selectedDomain = document.querySelector('input[name="iw-domain"]:checked')?.value || '';
+      const domain = selectedDomain === '自訂健體主題' ? (document.getElementById('iw-custom-topic').value.trim() || '自訂主題尚未輸入，請先填寫第 1 步。') : selectedDomain;
+      const selectedArch = document.querySelector('input[name="iw-arch"]:checked')?.value || '';
+      const isCustomArch = selectedArch === '自訂頁面架構';
+      const customArch = document.getElementById('iw-custom-arch').value.trim();
+      document.getElementById('iw-custom-arch-box').hidden = !isCustomArch;
+      document.getElementById('iw-custom-arch-hint').textContent = customArch ? '您的自訂架構已帶入下方 AI 提示詞。' : '請填寫各區塊內容、操作順序及希望提供的回饋。';
+      const arch = isCustomArch ? (customArch ? `自訂頁面架構（依老師指定流程實作）：\n${customArch}` : '自訂頁面架構尚未填寫；請先完成第 2 步的架構與流程說明，不得自行假設已確認的架構。') : selectedArch;
       const collapseHeader = document.getElementById('iw-collapse-header').checked;
       const outdoorMode = document.getElementById('iw-outdoor-mode').checked;
       const style = document.querySelector('input[name="iw-style"]:checked')?.value || '';
@@ -1284,12 +2922,13 @@ ${useBopomofo ? '- **低中年級無障礙支援**：請引入注音相容字型
 ## 二、 公開課／教案競賽課綱對齊規範${publicModal ? '（★必備：內建觀課與評審專屬說明視窗）' : ''}
 ${publicModal ? `請在網站頂部導覽列最右側設計一顆醒目的按鈕：**「📋 課綱與教學設計對齊（觀課／評審專區）」**。點擊後彈出精緻的 Modal 視窗，清楚列出本互動教材對齊之 108 課綱指標與教學設計理念，內容必須完整包含：` : '本教材內部設計請嚴格對齊以下 108 課綱健康與體育領域指標：'}
 1. **領域核心素養**：
-${comps.length ? comps.map(c => `   - ${c}`).join('\n') : '   - 健體-E-A1、健體-E-B2、健體-E-C2'}
+${comps.length ? comps.map(c => `   - ${c}`).join('\n') : '   - 尚未勾選，請教師從九項核心素養選擇適用項目'}
 2. **學習表現**：
-${perfs.length ? perfs.map(p => `   - ${p}`).join('\n') : '   - 請依據本單元自動對齊對應之健體學習表現'}
+${perfs.length ? perfs.map(p => `   - ${p}`).join('\n') : '   - 尚未勾選；請由教師依目標確認領綱原文，不得自創代碼或將教學建議冒充領綱原文'}
 3. **學習內容**：
-${conts.length ? conts.map(c => `   - ${c}`).join('\n') : '   - 請依據本單元自動對齊對應之健體學習內容'}
-4. **教學法與評量轉化說明**：說明本網頁如何將「生活技能／SEL 社會情緒學習／TGfU 戰術意識」轉化為學生的數位互動決策歷程。
+${conts.length ? conts.map(c => `   - ${c}`).join('\n') : '   - 尚未勾選；請由教師依實際活動選擇，不得自創代碼或將新興運動名稱當作領綱代碼'}
+4. **課綱資料來源與使用規範**：依教師提供之《領綱精簡本》PDF 第 1–3 頁核心素養、第 8–10 頁學習表現、第 10–14 頁學習內容。逐字保留已勾選之代碼與內涵；SEL、TPSR、TGfU 與新興運動是教學設計應用，不是額外的官方課綱代碼。
+5. **教學法與評量轉化說明**：說明本網頁如何將「生活技能／SEL 社會情緒學習／TGfU 戰術意識」轉化為學生的數位互動決策歷程。
 
 ---
 
@@ -1374,9 +3013,12 @@ ${floatingToolsList.length ? floatingToolsList.join('\n') : '- 提供課堂計�
     // 初始化啟動
     window.addEventListener('DOMContentLoaded', () => {
       syncRouteFromHash();
+      renderCoreCompetencies();
       handleLpStageChange();
-      renderIwCurriculumCheckboxes();
-      compileInteractivePrompt();
+      document.querySelectorAll('input[name="iw-domain"]').forEach(input => {
+        input.onchange = syncIwTopic;
+      });
+      syncIwTopic();
     });
   </script>
 </body>
